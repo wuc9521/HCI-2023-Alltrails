@@ -1,4 +1,23 @@
-# <img src="/react-app/public/images/logo.png" width="60" height="70"> Phaunos
+# <img src="/react-app/public/images/logo.png" width="60" height="70"> Phaunos $\to$ HCI@2023
+
+
+
+我们的共享文档: https://box.nju.edu.cn/group/17980/
+
+请大家新建属于自己的分支, 不要直接提交到main分支
+
+- 我使用的 node 版本是`16.20.0`
+- 我修改了/react-app/package.json, 如果大家已经运行过 `npm install`, 请把 /node_modules 删掉, 重新运行一次 `npm install`.
+
+
+
+
+
+
+
+
+
+
 
 Phaunos is a fullstack single-page AllTrails clone where a user can find hiking trails in their area, add those trails to a list and leave reviews describing their experiences.
 
@@ -57,7 +76,7 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
       ```bash
       npm install
       ```
- 
+
 7. In the 'react-app' folder create a '.env' file
 8. Copy over all the content from the 'example.env' to the '.env'
 9. From here you will need to get a key from [openweatherapi](https://openweathermap.org/api) and [googlemaps](https://console.cloud.google.com/google/maps-apis)
@@ -67,14 +86,7 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
 ## Landing Page
 You can access the Login and Signup page here. Also, we have a demo user button for you to access the website.
 
-<kbd>
-<img src="https://dorian-macias-portfolio.onrender.com/images/pic01.jpg">
-</kbd>
 
 
 
-# HCI-2023-Frontend
 
-我们的共享文档: https://box.nju.edu.cn/group/17980/
-
-请大家新建属于自己的分支, 不要直接提交到main分支
