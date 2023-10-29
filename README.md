@@ -52,8 +52,8 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
       pipenv install -r requirements.txt
       ```
 
-3. In the root directory create a '.env' file
-4. Copy over all the content from the 'example.env' to the '.env'
+3. ~~In the root directory create a '.env' file~~
+4. ~~Copy over all the content from the 'example.env' to the '.env'~~
 6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
 
    ```bash
@@ -77,8 +77,8 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
       npm install
       ```
 
-7. In the 'react-app' folder create a '.env' file
-8. Copy over all the content from the 'example.env' to the '.env'
+7. ~~In the 'react-app' folder create a '.env' file~~
+8. ~~Copy over all the content from the 'example.env' to the '.env'~~
 9. From here you will need to get a key from [openweatherapi](https://openweathermap.org/api) and [googlemaps](https://console.cloud.google.com/google/maps-apis)
 10. Take those keys and add them to the .env file
 
