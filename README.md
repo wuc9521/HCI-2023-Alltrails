@@ -83,8 +83,6 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
 10. Take those keys and add them to the .env file
 
 
-## Landing Page
-You can access the Login and Signup page here. Also, we have a demo user button for you to access the website.
 
 
 

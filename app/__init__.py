@@ -34,7 +34,7 @@ app.register_blueprint(reviews_routes, url_prefix='/api/reviews')
 app.register_blueprint(bookmarks_lists_routes, url_prefix='/api/bookmarksLists')
 app.register_blueprint(bookmarks_routes, url_prefix='/api/bookmarks')
 db.init_app(app)
-Migrate(app, db)
+migrate = Migrate(app, db)
 
 # Application Security
 CORS(app)

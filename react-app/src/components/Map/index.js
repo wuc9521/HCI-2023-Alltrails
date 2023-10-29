@@ -25,6 +25,7 @@ const Map = ({ bookmarks }) => {
     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
   });
   if (!isLoaded) return <h1>Loading...</h1>;
+  else console.log("Map loaded");
   return (
     <>
       <GoogleMap options={mapOptions} mapContainerClassName="map-container">
