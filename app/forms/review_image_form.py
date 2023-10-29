@@ -7,6 +7,6 @@ from ..api.aws_helpers import ALLOWED_EXTENSIONS
 
 class ReviewImageForm(FlaskForm):
     # img_src = FileField('Image', validators=[DataRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
-    img_src = Stringield('Image', validators=[DataRequired()])
+    img_src = StringField('Image', validators=[DataRequired()])
     review_id = IntegerField("review_id", validators=[DataRequired()])
     submit = SubmitField("Submit Image")
