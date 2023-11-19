@@ -19,6 +19,8 @@
 
 
 
+
+
 Phaunos is a fullstack single-page AllTrails clone where a user can find hiking trails in their area, add those trails to a list and leave reviews describing their experiences.
 
 **Live Site: [Phaunos](https://phaunos.onrender.com/)**

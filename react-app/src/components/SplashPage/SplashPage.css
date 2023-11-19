@@ -1,5 +1,5 @@
 .content-trails {
-  width: 47%;
+  width: 77%;
   overflow: auto;
   margin: 0 auto;
   position: relative;
@@ -31,7 +31,7 @@
   border: none;
   cursor: pointer;
   height: 100%;
-  width: 2vw;
+  width: 1vw;
   position: absolute;
   top: 0;
   display: flex;
