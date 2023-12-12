@@ -39,7 +39,7 @@ export const getTrailsThunk = () => async (dispatch) => {
 
 // get trail details of single trail
 export const getSingleTrailThunk = (trailId) => async (dispatch) => {
-  const res = await fetch(`/api/trails/${trailId}`);
+  const res = await fetch(`/api/trails/${trailId}`); //@wct: 这里原本只有20条数据.
   if (res.ok) {
     const data = await res.json();
     await dispatch(getSingleTrail(data));

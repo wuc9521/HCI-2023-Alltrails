@@ -1,6 +1,8 @@
-# <img src="/react-app/public/images/logo.png" width="60" height="70"> Phaunos $\to$ HCI@2023
+$$
+\Huge{\textbf{Phaunos} \to \textbf{HCI@2023}}
+$$
 
-
+# 1. About
 
 我们的共享文档: https://box.nju.edu.cn/group/17980/
 
@@ -11,43 +13,30 @@
 
 
 
+# 2. Tech Stack
+
+## 2.1. database: 
+
+数据库使用 PostgreSQL, 具体来说使用 Python Alembic 来实现数据的管理和迁移.
+
+> [这篇知乎](https://zhuanlan.zhihu.com/p/90106173)介绍了Python Alembic
+
+## 2.2. backend
+
+后段使用 flask
+
+## 2.3. frontend
+
+前端使用 react 框架, 还包括 react router; css3; redux.
 
 
 
+# -1. Phaunos
 
+> project link is [**here**](https://github.com/dorianinc/Phaunos)
 
+## -1.1. How to start project locally (old)
 
-
-
-
-
-Phaunos is a fullstack single-page AllTrails clone where a user can find hiking trails in their area, add those trails to a list and leave reviews describing their experiences.
-
-**Live Site: [Phaunos](https://phaunos.onrender.com/)**
-
-#### Please see below links to project Wiki:
-* [Feature List](https://github.com/dorianinc/Phaunos/wiki/Features-List)
-* [Database Schema](https://github.com/dorianinc/01-AirBnB/wiki/Database-Schema)
-* [Frontend Routes & Components](https://github.com/dorianinc/Phaunos/wiki/Front-End-Routes-&-Components)
-* [Backend Routes](https://github.com/dorianinc/Phaunos/wiki/Back-End-Routes)
-* [Redux Store State Shape](https://github.com/dorianinc/01-AirBnB/wiki/Redux-Store-Shape)
-
-## 💻 Tech Stack
-#### Frameworks, Platforms and Libraries:
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
-![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-
-#### Database:
-![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-
-#### Hosting:
-![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
-
-#### How to start project locally:
 1. Clone the repo into a desired location
 2. In the root folder run the following command to install dependencies for the backend (app folder) 
       ```bash
@@ -56,12 +45,12 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
 
 3. ~~In the root directory create a '.env' file~~
 4. ~~Copy over all the content from the 'example.env' to the '.env'~~
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+5. Get into your pipenv, migrate your database, seed your database, and run your Flask app
 
    ```bash
    pipenv shell
    ```
-   
+
    ```bash
    flask db upgrade
    ```
@@ -83,6 +72,16 @@ Phaunos is a fullstack single-page AllTrails clone where a user can find hiking 
 8. ~~Copy over all the content from the 'example.env' to the '.env'~~
 9. From here you will need to get a key from [openweatherapi](https://openweathermap.org/api) and [googlemaps](https://console.cloud.google.com/google/maps-apis)
 10. Take those keys and add them to the .env file
+
+
+
+## -1.2. project Wiki
+
+* [Feature List](https://github.com/dorianinc/Phaunos/wiki/Features-List)
+* [Database Schema](https://github.com/dorianinc/01-AirBnB/wiki/Database-Schema)
+* [Frontend Routes & Components](https://github.com/dorianinc/Phaunos/wiki/Front-End-Routes-&-Components)
+* [Backend Routes](https://github.com/dorianinc/Phaunos/wiki/Back-End-Routes)
+* [Redux Store State Shape](https://github.com/dorianinc/01-AirBnB/wiki/Redux-Store-Shape)
 
 
 
