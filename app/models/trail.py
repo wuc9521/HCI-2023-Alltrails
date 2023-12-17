@@ -22,6 +22,7 @@ class Trail(db.Model):
     attractions = db.Column(db.String(255), nullable=False)
     activities = db.Column(db.String(255), nullable=False)
     suitability = db.Column(db.String(255), nullable=False)
+    # path = db.Column(db.String(255), nullable=True)
 
     trail_images_rel = db.relationship(
         "Trail_Image", back_populates="trail_rel", cascade="all, delete-orphan"

@@ -10,7 +10,7 @@ seed_data = [
         {
         "follower": 1,
         "followed": 3
-    },
+    }, 
     {
         "follower": 1,
         "followed": 4

@@ -331,7 +331,6 @@ def seed_trails(app):
         for data in seed_data:
             trail = Trail(**data)
             db.session.add(trail)
-
         db.session.commit()
 
 

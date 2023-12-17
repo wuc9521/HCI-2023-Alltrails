@@ -1,5 +1,5 @@
 from .db import db
-from .user import User
+from .user import User, follows
 from .trail import Trail
 from .trail_image import Trail_Image
 from .review import Review
