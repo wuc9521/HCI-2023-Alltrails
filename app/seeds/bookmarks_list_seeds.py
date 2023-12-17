@@ -1,4 +1,4 @@
-from app.models import db, Bookmarks_List, environment, SCHEMA
+from ..models import db, Bookmarks_List, environment, SCHEMA
 from sqlalchemy.sql import text
 
 seed_data = [

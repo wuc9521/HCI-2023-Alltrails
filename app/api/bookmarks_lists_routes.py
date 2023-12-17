@@ -1,7 +1,7 @@
 from flask import Blueprint, request, make_response
 from flask_login import login_required, current_user
-from app.models import db, Bookmarks_List, Bookmark
-from app.forms import BookmarksListForm
+from ..models import db, Bookmarks_List, Bookmark
+from ..forms import BookmarksListForm
 
 bookmarks_lists_routes = Blueprint("bookmarks_lists", __name__)
 

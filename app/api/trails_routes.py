@@ -1,7 +1,7 @@
 from flask import Blueprint, request, make_response, jsonify
 from flask_login import login_required, current_user
-from app.models import db, Trail, Review, Bookmark
-from app.forms import ReviewForm
+from ..models import db, Trail, Review, Bookmark
+from ..forms import ReviewForm
 
 trails_routes = Blueprint("trails", __name__)
 

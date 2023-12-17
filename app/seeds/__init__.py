@@ -8,7 +8,7 @@ from .bookmarks_seeds import seed_bookmarks, undo_bookmarks
 from .reviews_seeds import seed_reviews, undo_reviews
 from .review_images_seeds import seed_review_images, undo_review_images
 
-from app.models.db import db, environment, SCHEMA
+from ..models.db import db, environment, SCHEMA
 
 def create_seed_commands(app):
     # Creates a seed group to hold our commands

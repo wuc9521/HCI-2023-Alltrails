@@ -1,6 +1,6 @@
 from flask import Blueprint, request, make_response
 from flask_login import login_required, current_user
-from app.models import db, Bookmark, Bookmarks_List
+from ..models import db, Bookmark, Bookmarks_List
 
 bookmarks_routes = Blueprint("bookmarks", __name__)
 

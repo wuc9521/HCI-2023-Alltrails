@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import db, User, Bookmarks_List
-from app.forms import LoginForm
-from app.forms import SignUpForm
+from ..models import db, User, Bookmarks_List
+from ..forms import LoginForm
+from ..forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 import random
 

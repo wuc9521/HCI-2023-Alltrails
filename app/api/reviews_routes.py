@@ -1,7 +1,7 @@
 from flask import Blueprint, request, make_response, jsonify
 from flask_login import login_required, current_user
-from app.models import db, Review
-from app.forms import ReviewForm
+from ..models import db, Review
+from ..forms import ReviewForm
 
 reviews_routes = Blueprint("reviews", __name__)
 

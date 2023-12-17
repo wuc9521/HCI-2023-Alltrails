@@ -1,4 +1,4 @@
-from app.models import db, Review, environment, SCHEMA
+from ..models import db, Review, environment, SCHEMA
 from sqlalchemy.sql import text
 
 seed_data = [

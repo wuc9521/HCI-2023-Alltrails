@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Email, Length, ValidationError
 from flask_wtf.file import FileField, FileAllowed, FileRequired
-from app.models import User
+from ..models import User
 from ..api.aws_helpers import ALLOWED_EXTENSIONS
 
 def user_exists(form, field):
