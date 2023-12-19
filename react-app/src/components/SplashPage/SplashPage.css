@@ -1,7 +1,8 @@
 .content-trails {
   width: 77%;
   overflow: auto;
-  margin: 0 auto;
+  margin: auto;
+  padding-bottom: 20px;
   position: relative;
   overflow: hidden;
 }

@@ -38,11 +38,7 @@ function LoginFormPage() {
 
   return (
     <div className="login-page-container">
-      <img
-        className="login-page-image"
-        alt="city-forest"
-        src="/images/backgrounds/log-in-page.jpg"
-      />
+      <img className="login-page-image" alt="city-forest" src="/images/backgrounds/log-in-page.jpg" />
       <div className="login-page-content">
         <h1 id="login-page-header">Log in and start exploring.</h1>
         <form onSubmit={handleSubmit}>

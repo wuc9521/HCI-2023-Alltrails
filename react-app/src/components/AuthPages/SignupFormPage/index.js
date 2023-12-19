@@ -32,22 +32,22 @@ function SignupFormPage() {
   };
 
   return (
-    <div className="signup-page-container">
-      <img
-        className="login-page-image"
-        alt="city-forest"
-        src="/images/backgrounds/sign-up-page.jpg"
-      />
+    <div className="signup-page-container" style={{
+      backgroundImage: `url("/images/backgrounds/sign-up-page.jpg")`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}>
       <div className="signup-page-content">
         <div className="signup-page-left">
           <div className="douglas">
-          <img className="pine-tree" alt="kawaii-tree" src="/images/kawaii-tree.png" />
-          <h1 id="signup-greeting">Your journey begins here</h1>
-          <h2 id="signup-greeting">- Douglas the Fir</h2>
+            <img className="pine-tree" alt="kawaii-tree" src="/images/kawaii-tree.png" />
+            <h1 id="signup-greeting">Your journey begins here</h1>
+            <h2 id="signup-greeting">- Douglas the Fir</h2>
           </div>
         </div>
         <div className="signup-page-right">
-          <h1 id="signup-page-header">Sign up</h1>
+          <h4 id="signup-page-header">Sign up</h4>
           <form onSubmit={handleSubmit}>
             <div className="inputs-container">
               <div className="flex-inputs">
@@ -95,9 +95,8 @@ function SignupFormPage() {
               <label>
                 Password
                 <input
-                  className={`auth-input ${
-                    (errors.password || errors.confirmPassword) && "input-error"
-                  }`}
+                  className={`auth-input ${(errors.password || errors.confirmPassword) && "input-error"
+                    }`}
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -107,9 +106,8 @@ function SignupFormPage() {
               <label>
                 Confirm Password
                 <input
-                  className={`auth-input ${
-                    (errors.password || errors.confirmPassword) && "input-error"
-                  }`}
+                  className={`auth-input ${(errors.password || errors.confirmPassword) && "input-error"
+                    }`}
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}

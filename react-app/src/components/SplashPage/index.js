@@ -35,7 +35,7 @@ function SplashPage() {
       <Banner />
       <div className="content-container">
         <div className="content-trails">
-          <h1 className="local-favorites">Popular Trails</h1>
+          <h1 className="local-favorites">Popular Trails</h1><br/>
           <button className="prev-button" onClick={() => handleSlider("back")}>
             <i className="fa-solid fa-chevron-left fa-2xl" />
           </button>

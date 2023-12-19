@@ -43,7 +43,7 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
         <div className={`trail-text ${nameOfClass}`}>
           <div className="trail-card-top">
             <p id="trail-diff-review">
-              {trail.difficulty} • <i className="fa-solid fa-star fa-xs" />{" "}
+            <span id={`trail-len`}>{trail.len}</span> • {trail.difficulty} • <i className="fa-solid fa-star fa-xs" />{" "}
               {Number(trail.avg_rating).toFixed(1)}({trail.num_reviews})
             </p>
             {pathName.startsWith("/profile/lists") && (
@@ -51,11 +51,6 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
                 <p className="secondary-color" id="trail-link">View Trail</p>
               </Link>
             )}
-          </div>
-          <div className="trail-card-bottom">
-            <p id={`trail-name`}>{trail.name}</p>
-            <p id={`trail-park`}>{trail.park}</p>
-            <p id={`trail-len`}>{trail.len}</p>
           </div>
         </div>
         {user && !pathName.startsWith("/profile") ? (
@@ -67,10 +62,7 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
             />
           </div>
         ) : user && pathName.startsWith("/profile") && !editing ? (
-          <CompletedTab
-            type="bookmark"
-            trailId={trail.id}
-            modalComponent={<BookmarkList trail={trail} />}
+          <CompletedTab type="bookmark" trailId={trail.id} modalComponent={<BookmarkList trail={trail} />}
           />
         ) : editing ? (
           <>

@@ -1,13 +1,14 @@
 .signup-page-container {
   position: relative;
-  height: 95vh;
+  height: 97vh;
 }
 
 .signup-page-image {
   position: absolute;
   z-index: 0;
-  height: 100%;
-  width: 100%;
+  /* height: 100%; */
+  /* width: 100%; */
+  /* overflow: hidden; */
 }
 
 .signup-page-content {
@@ -15,8 +16,9 @@
   z-index: 1;
   height: auto;
   width: 900px;
-  top: 25%;
-  right: 35%;
+  top: 15%;
+  right: 50%;
+  transform: translateX(50%); /* This is the magic */
   background-color: #fff;
   box-sizing: border-box;
   overflow: hidden;
@@ -45,7 +47,7 @@
 #signup-page-header {
   color: #2b381f;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 2rem;
   margin-bottom: 30px;
 }
 

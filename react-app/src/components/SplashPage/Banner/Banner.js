@@ -15,12 +15,8 @@ const Banner = () => {
           <span className="search-bar">
             <div id="search-button">
               <i className="fa-solid fa-magnifying-glass fa-xl" />
-              <input
-                id="search-input"
-                type="search"
-                name="trail-search"
-                placeholder="Search by city, park, or trail name"
-              />
+              <input id="search-input" type="search" name="trail-search"
+                placeholder="Search by city, park, or trail name"/>
               <div onClick={(e) => handleClick(e)}>
                 <i className="fa-solid fa-circle-arrow-right fa-2xl" />
               </div>
