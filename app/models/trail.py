@@ -28,9 +28,6 @@ class Trail(db.Model):
     trail_images_rel = db.relationship(
         "TrailImage", back_populates="trail_rel", cascade="all, delete-orphan"
     )
-    trail_path_rel = db.relationship(
-        "TrailPath", back_populates="trail_rel", cascade="all, delete-orphan"
-    )
     review_rel = db.relationship("Review", back_populates="trail_rel")
     bookmark_rel = db.relationship("Bookmark", back_populates="trail_rel")
 
