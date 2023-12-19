@@ -6,20 +6,19 @@
   margin: 4rem auto;
 }
 
-.profile-info,
+.profile-info, 
 .profile-user-tabs-container {
   background-color: #fff;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 
 .profile-info {
-  height: 400px;
+  height: 200px;
   width: 315px;
   padding: 30px 20px;
   color: #2b381f;
   padding: 30px 20px;
-  box-shadow: 0px 10px 10px #b8b8b5;
 }
 
 .profile-pic.profile {
@@ -34,8 +33,9 @@
   margin: 5px;
 }
 
-#profile-user-location {
+#profile-user-username {
   font-size: 1rem;
+  color: lightseagreen;
 }
 
 #profile-user-member,

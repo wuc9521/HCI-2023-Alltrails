@@ -8,7 +8,7 @@ class Trail(db.Model):
         __table_args__ = {"schema": SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False, unique=True)
+    name = db.Column(db.String(100), nullable=False)#去掉了名称字段不能重复要求 @gqc
     park = db.Column(db.String(50), nullable=True)
     city = db.Column(db.String(50), nullable=True)
     state = db.Column(db.String(50), nullable=True)
@@ -49,9 +49,8 @@ class Trail(db.Model):
             "attractions": self.attractions.split(","),
             "activities": self.activities.split(","),
             "suitability": self.suitability.split(","),
-            "cover": (self.trail_images_rel[0]).to_dict(),
-            "images": [image.to_dict() for image in self.trail_images_rel] if includeImages else "",
-            "avg_rating": sum([review.to_dict()["rating"] for review in self.review_rel]) / len([review.to_dict()["rating"] for review in self.review_rel]),
+            "cover": self.trail_imagesurl ,
+            "avg_rating": self.id,
             "reviews": [review.to_dict() for review in self.review_rel] if includeReviews else "",
             "num_reviews": len(self.review_rel),
         }

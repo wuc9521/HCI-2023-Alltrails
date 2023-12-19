@@ -10,6 +10,7 @@ import ProfilePage from "./components/ProfilePage";
 import TrailDetails from "./components/Trails/TrailDetails";
 import ListDetails from "./components/Lists/ListDetails";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import ExploreTrails from "./components/Trails/ExploreTrails";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Switch>
           <Route path="/login" component={LoginFormPage} />
           <Route path="/signup" component={SignupFormPage} />
+          <Route path="/explore" component={ExploreTrails} />  {/* added by @wct */}
           <Route path="/trails/:trailId" component={TrailDetails} />
           <Route path="/profile/lists/:listId">
             <ProtectedRoute>

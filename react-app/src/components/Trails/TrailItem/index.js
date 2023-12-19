@@ -38,7 +38,7 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
     <>
       <div className={`trail-item ${nameOfClass}`} onClick={(e) => handleClick(e, trail)}>
         <div>
-          <img className={`trail-image ${nameOfClass}`} alt="cover" src={trail.cover.img_src} />
+          <img className={`trail-image ${nameOfClass}`} alt="cover" src={trail.cover} />
         </div>
         <div className={`trail-text ${nameOfClass}`}>
           <div className="trail-card-top">
@@ -48,9 +48,7 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
             </p>
             {pathName.startsWith("/profile/lists") && (
               <Link to={`/trails/${trail.id}`}>
-                <p className="secondary-color" id="trail-link">
-                  View Trail
-                </p>
+                <p className="secondary-color" id="trail-link">View Trail</p>
               </Link>
             )}
           </div>

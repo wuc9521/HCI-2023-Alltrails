@@ -1,5 +1,5 @@
 .trail-details-container {
-  width: 1024px;
+  width: 90%;
   height: 90%;
   margin: 1.5% auto;
   margin-bottom: 1.5%;
@@ -15,6 +15,20 @@
   overflow: hidden;
   border-bottom: 40px solid #437128;
 }
+
+.trail-item-container {
+  display: flex;
+  gap: 19px;
+  padding: 0 75px;
+  padding-top: 50px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.trail-item-container::-webkit-scrollbar {
+  display: none;
+}
+
 
 .cover-image {
   width: 100%;

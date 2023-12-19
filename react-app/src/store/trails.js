@@ -2,8 +2,6 @@
 export const GET_TRAILS = "trails/GET_TRAILS";
 export const GET_SINGLE_TRAIL = "trails/GET_SINGLE_TRAIL";
 export const UPDATE_TRAIL = "trails/UPDATE_TRAIL";
-// export const DELETE_TRAIL = "trails/DELETE_TRAIL";
-// export const CLEAR_TRAILS = "trails/CLEAR_TRAILS";
 
 ///////////// Action Creators ///////////////
 

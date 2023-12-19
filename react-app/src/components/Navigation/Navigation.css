@@ -89,10 +89,15 @@
   box-sizing: border-box;
 }
 
+/* 首页点击用户 */
 .dropdown-username,
 .dropdown-email,
 .dropdown-button {
   width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .dropdown-button {

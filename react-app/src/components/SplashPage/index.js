@@ -37,10 +37,10 @@ function SplashPage() {
         <div className="content-trails">
           <h1 className="local-favorites">Popular Trails</h1>
           <button className="prev-button" onClick={() => handleSlider("back")}>
-            <i class="fa-solid fa-chevron-left fa-2xl" />
+            <i className="fa-solid fa-chevron-left fa-2xl" />
           </button>
           <button className="next-button" onClick={() => handleSlider("forward")}>
-            <i class="fa-solid fa-chevron-right fa-2xl" />
+            <i className="fa-solid fa-chevron-right fa-2xl" />
           </button>
           <div className="trail-item-container">
             {(() => {

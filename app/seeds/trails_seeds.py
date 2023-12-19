@@ -1,338 +1,79 @@
+from sqlite3 import IntegrityError
 from ..models import db, Trail, environment, SCHEMA
 from sqlalchemy.sql import text
+import json
+import os
+filename = './app/traildata.json'
+print(os.getcwd())
+with open(filename, 'r', encoding='utf-8') as file:
+    data = json.load(file)
+seed_data = []
+for item in data:
+    country = item["country"]
+    lat = item["lat"]
+    lng = item["lng"]
+    link = item["link"]
+    name = item["name"]
+    park = item["park"]
+    city = item["city"]
+    state = item["state"]
+    difficulty = item["difficulty"]
+    length = item["length"]
+    elevation = item["elevation"]
+    route_type = item["route_type"]
+    description = item["description"]
+    link = item["link"]
 
-seed_data = [
-    {
-        "name": "Vernal and Nevada Falls via Mist Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.72673696002307,
-        "lng": -119.53974603558228,
-        "difficulty": "Hard",
-        "length": "4.9 miles",
-        "elevation": "1,000 ft",
-        "route_type": "Out and Back",
-        "description": "Try this 6.4-mile loop trail near Yosemite Valley, California. Generally considered a challenging route, it takes an average of 4 h 10 min to complete. This is a very popular area for hiking, so you'll likely encounter other people while exploring. The best times to visit this trail are May through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Panoramic Views, Waterfalls",
-        "activities": "Hiking, Photography",
-        "suitability": "Kid Friendly, Wheelchair Friendly",
-    },
-    {
-        "name": "Half Dome Via John Muir",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.73282,
-        "lng": -119.55778,
-        "difficulty": "Hard",
-        "length": "4.8 miles",
-        "elevation": "4,800 ft",
-        "route_type": "Out and Back",
-        "description": "Try this 15.3-mile out-and-back trail near Yosemite Valley, California. Generally considered a challenging route. This is a very popular area for hiking and rock climbing, so you'll likely encounter other people while exploring. The best times to visit this trail are May through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Panoramic Views, Cables",
-        "activities": "Hiking, Rock Climbing",
-        "suitability": "Experienced Hikers",
-    },
-    {
-        "name": "Glacier Point Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.727820767402555,
-        "lng": -119.57426415228366,
-        "difficulty": "Easy",
-        "length": "1 mile",
-        "elevation": "137 ft",
-        "route_type": "Loop",
-        "description": "Explore this 0.6-mile loop trail near Yosemite Valley, California. Generally considered an easy route, it takes an average of 19 min to complete. This is a very popular area for walking, so you'll likely encounter other people while exploring. The best times to visit this trail are June through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Panoramic Views, Yosemite Valley",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "All Skill Levels,Family-friendly",
-    },
-    {
-        "name": "Four Mile Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.73333912854748,
-        "lng": -119.58720630715618,
-        "difficulty": "Hard",
-        "length": "4.8 miles",
-        "elevation": "3,200 ft",
-        "route_type": "One Way",
-        "description": "Get to know this 9.7-mile out-and-back trail near Yosemite Valley, California. Generally considered a challenging route, it takes an average of 6 h 23 min to complete. This is a very popular area for hiking, so you'll likely encounter other people while exploring. The best times to visit this trail are May through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Panoramic Views,Waterfalls",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "Experienced Hikers",
-    },
-    {
-        "name": "Upper Yosemite Falls Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.75832131220141,
-        "lng": -119.59695445246814,
-        "difficulty": "Hard",
-        "length": "7.2 miles",
-        "elevation": "2,700 ft",
-        "route_type": "Out and Back",
-        "description": "Discover this 6.6-mile out-and-back trail near Yosemite Valley, California. Generally considered a challenging route, it takes an average of 5 h 21 min to complete. This is a very popular area for backpacking, camping, and hiking, so you'll likely encounter other people while exploring. The best times to visit this trail are April through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Waterfalls, Panoramic Views",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "Experienced Hikers",
-    },
-    {
-        "name": "Taft Point via Four Mile Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.714125934645736, 
-        "lng": -119.6042862786834,
-        "difficulty": "Moderate",
-        "length": "16.3 miles",
-        "elevation": "4,845 ft",
-        "route_type": "Loop",
-        "description": "Try this 16.3-mile loop trail near Yosemite Valley, California. Generally considered a challenging route, it takes an average of 9 h 47 min to complete. This is a very popular area for hiking, so you'll likely encounter other people while exploring. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Panoramic Views, Granite Cliffs",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "Intermediate",
-    },
-    {
-        "name": "Mirror Lake Loop",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.74158833425448,
-        "lng": -119.55963895315217,
-        "difficulty": "Easy",
-        "length": "2.8 miles",
-        "elevation": "100 ft",
-        "route_type": "Loop",
-        "description": "Check out this 4.2-mile loop trail near Government Camp, Oregon. Generally considered a moderately challenging route, it takes an average of 1 h 55 min to complete. This is a very popular area for backpacking, camping, and hiking, so you'll likely encounter other people while exploring. The best times to visit this trail are May through October. Dogs are welcome, but must be on a leash.",
-        "attractions": "Lake Views, Scenic Reflections",
-        "activities": "Hiking, Nature Walking",
-        "suitability": "All Skill Levels, Family-friendly",
-    },
-    {
-        "name": "Valley Loop Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.73739974895278,
-        "lng": -119.6081207327154,
-        "difficulty": "Moderate",
-        "length": "20.4 miles",
-        "elevation": "500 ft",
-        "route_type": "Loop",
-        "description": "Experience this 20.4-mile loop trail near Yosemite Valley, California. Generally considered an easy route, it takes an average of 7 h 8 min to complete. This is a very popular area for hiking, snowshoeing, and running, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Scenic Views, Waterfalls",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "Intermediate",
-    },
-    {
-        "name": "Sentinel Dome Trail",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.7205060678489,
-        "lng": -119.58330436482736,
-        "difficulty": "Moderate",
-        "length": "2.2 miles",
-        "elevation": "400 ft",
-        "route_type": "Out and Back",
-        "description": "Experience this 2.2-mile out-and-back trail near Yosemite Valley, California. Generally considered a moderately challenging route, it takes an average of 1 h 7 min to complete. This is a very popular area for hiking and running, so you'll likely encounter other people while exploring. The best times to visit this trail are June through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-        "attractions": "Panoramic Views, Granite Dome",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "Intermediate",
-    },
-    {
-        "name": "Pohono Trail (East to West)",
-        "park": "Yosemite National Park",
-        "city": "Yosemite Valley",
-        "state": "California",
-        "lat": 37.694824,
-        "lng": -119.642001,
-        "difficulty": "Hard",
-        "length": "12.2 miles",
-        "elevation": "2,300 ft",
-        "route_type": "Point to Point",
-        "description": "Explore this 12.2-mile point-to-point trail near Yosemite Valley, California. Generally considered a challenging route, it takes an average of 7 h 6 min to complete. This is a popular trail for backpacking, camping, and hiking, but you can still enjoy some solitude during quieter times of day. The best times to visit this trail are June through October. You'll need to leave pups at home — dogs aren't allowed on this trail..",
-        "attractions": "Panoramic Views, Rock Formations",
-        "activities": "Hiking, Scenic Views",
-        "suitability": "Experienced Hikers",
-    },
-    {
-      "name": "Lady Bird Johnson Grove Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.307888, 
-      "lng": -124.023093,
-      "difficulty": "Easy",
-      "length": "1.4 miles",
-      "elevation": "100 ft",
-      "route_type": "Loop",
-      "description": "Explore this 1.5-mile loop trail near Orick, California. Generally considered an easy route, it takes an average of 32 min to complete. This is a very popular area for hiking and running, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Old-Growth Redwoods, Nature",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "All Skill Levels, Family-friendly",
-    },
-    {
-      "name": "Tall Trees Grove Loop Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.20838631027417, 
-      "lng": -123.99328724459889,
-      "difficulty": "Moderate",
-      "length": "3.6 miles",
-      "elevation": "780 ft",
-      "route_type": "Loop",
-      "description": "Discover this 3.6-mile loop trail near Trinidad, California. Generally considered a moderately challenging route, it takes an average of 1 h 52 min to complete. This is a very popular area for hiking, running, and walking, so you'll likely encounter other people while exploring. The best times to visit this trail are March through October. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Ferns, Creek",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "Intermediate",
-    },
-    {
-      "name": "Coastal Trail and Yurok Loop",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.592979, 
-      "lng": -124.100951,
-      "difficulty": "Moderate",
-      "length": "9.5 miles",
-      "elevation": "500 ft",
-      "route_type": "Point to Point",
-      "description": "Experience this 2.3-mile loop trail near Klamath, California. Generally considered an easy route, it takes an average of 48 min to complete. This is a popular trail for hiking, but you can still enjoy some solitude during quieter times of day. The best times to visit this trail are April through September. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Old-Growth Redwoods, Creek",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "Intermediate",
-    },
-    {
-      "name": "Trillium Falls Loop Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.316522, 
-      "lng": -124.045290,
-      "difficulty": "Easy",
-      "length": "2.8 miles",
-      "elevation": "499 ft",
-      "route_type": "Loop",
-      "description": "Discover this 2.7-mile loop trail near Orick, California. Generally considered a moderately challenging route, it takes an average of 1 h 15 min to complete. This is a very popular area for hiking and walking, so you'll likely encounter other people while exploring. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Waterfall, Coastal Redwoods",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "All Skill Levels, Family-friendly",
-    },
-    {
-      "name": "Enderts Beach via California Coastal Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.702896, 
-      "lng": -124.142049,
-      "difficulty": "Moderate",
-      "length": "1.3 miles",
-      "elevation": "1730 ft",
-      "route_type": "Out and Back",
-      "description": "Enjoy this 1.3-mile out-and-back trail near Crescent City, California. Generally considered a moderately challenging route, it takes an average of 33 min to complete. This is a popular trail for backpacking, camping, and hiking, but you can still enjoy some solitude during quieter times of day. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Tall Redwoods, Nature",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "Intermediate",
-    },
-    {
-      "name": "Redwood Creek Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.25245384588262, 
-      "lng": -124.01248178004123,
-      "difficulty": "Moderate",
-      "length": "15.7 miles",
-      "elevation": "1,118 ft",
-      "route_type": "Out and Back",
-      "description": "Get to know this 15.7-mile out-and-back trail near Orick, California. Generally considered a moderately challenging route, it takes an average of 5 h 38 min to complete. This is a very popular area for backpacking, fishing, and hiking, so you'll likely encounter other people while exploring. The best times to visit this trail are May through September. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Coastal Views, Creek",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "Intermediate",
-    },
-    {
-      "name": "Berry Glen and Lady Bird Grove Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.307038, 
-      "lng": -124.028963,
-      "difficulty": "Moderate",
-      "length": "6 miles",
-      "elevation": "400 ft",
-      "route_type": "Out and Back",
-      "description": "Enjoy this 6.0-mile out-and-back trail near Orick, California. Generally considered a moderately challenging route, it takes an average of 3 h 4 min to complete. This is a popular trail for hiking, running, and walking, but you can still enjoy some solitude during quieter times of day. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Old-Growth Redwoods, Natural Landmark",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "Intermediate",
-    },
-    {
-      "name": "Skunk Cabbage Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.32232908850539, 
-      "lng": -124.07336894023881,
-      "difficulty": "Moderate",
-      "length": "7.4 miles",
-      "elevation": "1,292 ft",
-      "route_type": "Out and Back",
-      "description": "Get to know this 7.4-mile out-and-back trail near Orick, California. Generally considered a moderately challenging route, it takes an average of 3 h 29 min to complete. This is a popular trail for birding, hiking, and running, but you can still enjoy some solitude during quieter times of day. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Fern Canyon, Coastal Views",
-      "activities": "Hiking, Beach Exploration",
-      "suitability": "Intermediate",
-    },
-    {
-      "name": "Dolason Prairie Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.20333039734262, 
-      "lng": -123.9711772800651,
-      "difficulty": "Moderate",
-      "length": "9.1 miles",
-      "elevation": "2,253 ft",
-      "route_type": "Out and Back",
-      "description": "Discover this 9.1-mile out-and-back trail near Orick, California. Generally considered a moderately challenging route, it takes an average of 4 h 59 min to complete. This trail is great for hiking and running, and it's unlikely you'll encounter many other people while exploring. The trail is open year-round and is beautiful to visit anytime. You'll need to leave pups at home — dogs aren't allowed on this trail.",
-      "attractions": "Old-Growth Redwoods, Nature",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "All Skill Levels, Family-friendly",
-    },
-    {
-      "name": "Flint Ridge Section Trail",
-      "park": "Redwood National Park",
-      "city": "Orick",
-      "state": "California",
-      "lat": 41.525065, 
-      "lng": -124.063658,
-      "difficulty": "Moderate",
-      "length": "8.4 miles",
-      "elevation": "1,958 ft",
-      "route_type": "Loop",
-      "description": "This is a beautiful hike that has it all - redwood trees, lush forests full of ferns and interesting fungi, and grasslands. This is a great trail if you are looking for some solitude in nature. You will likely have this trail all to yourself. This trail can sometimes be overgrown, so downloading offline maps can help you navigate this trail. Be sure to bring bug spray.",
-      "attractions": "Diverse Landscapes, Creek",
-      "activities": "Hiking, Nature Walking",
-      "suitability": "Intermediate",
-    },
-]
+    item_dict = {
+          "name": name,
+          "park": park,
+          "city": city,
+          "state": state,
+          "country": country,
+          "lat": lat,
+          "lng": lng,
+          "difficulty": difficulty,
+          "length": length,
+          "elevation": elevation,
+          "route_type": route_type,
+          "description": description,
+          "attractions": "null",
+          "activities": "null",
+          "suitability": "null",
+          "trail_imagesurl": link
+       }
+    seed_data.append(item_dict)
+
 
 
 # @with_appcontext
+from sqlalchemy.exc import IntegrityError
+
 def seed_trails(app):
     with app.app_context():
         for data in seed_data:
             trail = Trail(**data)
             db.session.add(trail)
-        db.session.commit()
-
+            try:
+                db.session.commit()
+            except IntegrityError:
+                db.session.rollback()
+                # 唯一性冲突，进行替换重复记录
+                existing_trail = Trail.query.filter_by(name=trail.name).first()
+                existing_trail.park = trail.park
+                existing_trail.city = trail.city
+                existing_trail.state = trail.state
+                existing_trail.country = trail.country
+                existing_trail.lat = trail.lat
+                existing_trail.lng = trail.lng
+                existing_trail.difficulty = trail.difficulty
+                existing_trail.length = trail.length
+                existing_trail.elevation = trail.elevation
+                existing_trail.route_type = trail.route_type
+                existing_trail.description = trail.description
+                existing_trail.trail_imagesurl = trail.trail_imagesurl
+                db.session.commit()
+                print(f"重复记录已替换：{trail.name}")
 
 # @with_appcontext
 def undo_trails(app):

@@ -2,7 +2,6 @@ from flask.cli import AppGroup
 from .users_seeds import seed_users, undo_users
 from .follows_seeds import seed_follows, undo_follows
 from .trails_seeds import seed_trails, undo_trails
-from .trail_images_seeds import seed_trail_images, undo_trail_images
 from .bookmarks_list_seeds import seed_bookmarks_list, undo_bookmarks_list
 from .bookmarks_seeds import seed_bookmarks, undo_bookmarks
 from .reviews_seeds import seed_reviews, undo_reviews
@@ -28,14 +27,12 @@ def create_seed_commands(app):
             undo_reviews(app)
             undo_bookmarks(app)
             undo_bookmarks_list(app)
-            undo_trail_images(app)
             undo_trails(app)
             undo_follows(app)
             undo_users()
         seed_users()
         # seed_follows(app)
         seed_trails(app)
-        seed_trail_images(app)
         seed_bookmarks_list(app)
         seed_reviews(app)
         seed_review_images(app)
@@ -50,7 +47,6 @@ def create_seed_commands(app):
         undo_reviews(app)
         undo_bookmarks(app)
         undo_bookmarks_list(app)
-        undo_trail_images(app)
         undo_trails(app)
         undo_follows(app)
         undo_users()
