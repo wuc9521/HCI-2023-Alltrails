@@ -1,4 +1,4 @@
-from ..models import db, Bookmarks_List, environment, SCHEMA
+from ..models import db, BookmarksList, environment, SCHEMA
 from sqlalchemy.sql import text
 
 seed_data = [
@@ -84,7 +84,7 @@ seed_data = [
 def seed_bookmarks_list(app):
     with app.app_context():
         for data in seed_data:
-            bookmarks_list = Bookmarks_List(**data)
+            bookmarks_list = BookmarksList(**data)
             db.session.add(bookmarks_list)
 
         db.session.commit()

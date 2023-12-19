@@ -12,6 +12,7 @@ class Trail(db.Model):
     park = db.Column(db.String(50), nullable=True)
     city = db.Column(db.String(50), nullable=True)
     state = db.Column(db.String(50), nullable=True)
+    country = db.Column(db.String(50), nullable=True) # added by @wct
     lat = db.Column(db.Float, nullable=False)
     lng = db.Column(db.Float, nullable=False)
     difficulty = db.Column(db.String(50), nullable=False)
@@ -25,7 +26,10 @@ class Trail(db.Model):
     # path = db.Column(db.String(255), nullable=True)
 
     trail_images_rel = db.relationship(
-        "Trail_Image", back_populates="trail_rel", cascade="all, delete-orphan"
+        "TrailImage", back_populates="trail_rel", cascade="all, delete-orphan"
+    )
+    trail_path_rel = db.relationship(
+        "TrailPath", back_populates="trail_rel", cascade="all, delete-orphan"
     )
     review_rel = db.relationship("Review", back_populates="trail_rel")
     bookmark_rel = db.relationship("Bookmark", back_populates="trail_rel")
@@ -37,6 +41,7 @@ class Trail(db.Model):
             "park": self.park,
             "city": self.city,
             "state": self.state,
+            "country": self.country, # added by @wct
             "lat": self.lat,
             "lng": self.lng,
             "difficulty": self.difficulty,
@@ -48,16 +53,9 @@ class Trail(db.Model):
             "activities": self.activities.split(","),
             "suitability": self.suitability.split(","),
             "cover": (self.trail_images_rel[0]).to_dict(),
-            "images": [image.to_dict() for image in self.trail_images_rel]
-            if includeImages
-            else "",
-            "avg_rating": sum(
-                [review.to_dict()["rating"] for review in self.review_rel]
-            )
-            / len([review.to_dict()["rating"] for review in self.review_rel]),
-            "reviews": [review.to_dict() for review in self.review_rel]
-            if includeReviews
-            else "",
+            "images": [image.to_dict() for image in self.trail_images_rel] if includeImages else "",
+            "avg_rating": sum([review.to_dict()["rating"] for review in self.review_rel]) / len([review.to_dict()["rating"] for review in self.review_rel]),
+            "reviews": [review.to_dict() for review in self.review_rel] if includeReviews else "",
             "num_reviews": len(self.review_rel),
         }
 
@@ -68,6 +66,7 @@ class Trail(db.Model):
             "park": self.park,
             "city": self.city,
             "state": self.state,
+            "country": self.country, # added by @wct
             "lat": self.lat,
             "lng": self.lng,
             "difficulty": self.difficulty,

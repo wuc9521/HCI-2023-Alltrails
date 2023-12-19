@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
-class Trail_Image(db.Model):
+class TrailImage(db.Model):
     __tablename__ = 'trail_images'
     
     if environment == "production":

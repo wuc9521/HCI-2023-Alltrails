@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from ..models import db, User, Bookmarks_List
+from ..models import db, User, BookmarksList
 from ..forms import LoginForm
 from ..forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -84,7 +84,7 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        new_list = Bookmarks_List(title="My Favorites", user_id=user.to_dict()["id"])
+        new_list = BookmarksList(title="My Favorites", user_id=user.to_dict()["id"])
         db.session.add(new_list)
         db.session.commit()
         return user.to_dict()

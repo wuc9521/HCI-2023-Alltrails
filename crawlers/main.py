@@ -79,23 +79,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# options = webdriver.ChromeOptions() # 创建参数设置对象.
-
-# driver = uc.Chrome(
-#     options=options,
-#     driver_executable_path='chromedriver',
-# )
-# driver.get("https://www.alltrails.com/china/jiangsu/nanjing")
-# time.sleep(100)
-
-# class = slider
-# slider = driver.find_element(By.CSS_SELECTOR, '.slider')
-# move = webdriver.ActionChains(driver)
-# move.click_and_hold(slider).perform()
-# time.sleep(1)
-# move.move_by_offset(340,0)
-# time.sleep(1)
-# move.release().perform()
-# time.sleep(100)     #加载等待

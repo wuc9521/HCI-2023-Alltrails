@@ -1,6 +1,6 @@
 from flask import Blueprint, request, make_response
 from flask_login import login_required, current_user
-from ..models import db, Bookmark, Bookmarks_List
+from ..models import db, Bookmark, BookmarksList
 
 bookmarks_routes = Blueprint("bookmarks", __name__)
 
@@ -8,7 +8,7 @@ bookmarks_routes = Blueprint("bookmarks", __name__)
 def get_users_bookmarks():
     """ Get all of users bookmarks """
     user = current_user.to_dict()
-    lists = Bookmarks_List.query.filter(Bookmarks_List.user_id == user["id"]).all()
+    lists = BookmarksList.query.filter(BookmarksList.user_id == user["id"]).all()
     bookmarks = []
     for list in lists:
        for bookmark in list.to_dict_bookmark_tabs()["bookmarks"]:
@@ -28,7 +28,7 @@ def get_bookmark_by_id(bookmark_id):
         error.status_code = 404
         return error
     
-    list = Bookmarks_List.query.get(bookmark.bookmarks_list_id)
+    list = BookmarksList.query.get(bookmark.bookmarks_list_id)
     if list.user_id != user["id"]:
         error = make_response("Only the creator can view their Bookmark")
         error.status_code = 401
@@ -69,7 +69,7 @@ def delete_bookmark():
         error.status_code = 404
         return error
     
-    list = Bookmarks_List.query.get(bookmark.bookmarks_list_id)
+    list = BookmarksList.query.get(bookmark.bookmarks_list_id)
     if list.user_id != user["id"]:
         error = make_response("Only the creator of a Bookmark can delete a bookmark")
         error.status_code = 401

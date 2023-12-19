@@ -1,4 +1,4 @@
-from ..models import db, Trail_Image, environment, SCHEMA
+from ..models import db, TrailImage, environment, SCHEMA
 from sqlalchemy.sql import text
 
 seed_data = [
@@ -89,7 +89,7 @@ seed_data = [
 def seed_trail_images(app):
     with app.app_context():
         for data in seed_data:
-            image = Trail_Image(**data)
+            image = TrailImage(**data)
             db.session.add(image)
 
         db.session.commit()
