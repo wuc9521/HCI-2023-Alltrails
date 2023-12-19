@@ -12,7 +12,7 @@ def seed_users():
             email="demo@aa.io",
             password="password",
         )
-    db.session.add(user)
+    # db.session.add(user)
     db.session.commit()
 
 

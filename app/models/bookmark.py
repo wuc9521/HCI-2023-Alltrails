@@ -11,7 +11,7 @@ class Bookmark(db.Model):
     bookmarks_list_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("bookmarks_lists.id")), nullable=False)
     
     trail_rel = db.relationship("Trail", back_populates="bookmark_rel")
-    bookmarks_list_rel = db.relationship("Bookmarks_List", back_populates="bookmark_rel")
+    bookmarks_list_rel = db.relationship("BookmarksList", back_populates="bookmark_rel")
     
     
     def to_dict(self, includeTrail=True):

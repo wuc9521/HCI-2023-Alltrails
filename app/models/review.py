@@ -14,7 +14,7 @@ class Review(db.Model):
         
     user_rel = db.relationship("User", back_populates="review_rel")
     trail_rel = db.relationship("Trail", back_populates="review_rel")
-    review_images_rel = db.relationship("Review_Image", back_populates="review_rel", cascade="all, delete-orphan")
+    review_images_rel = db.relationship("ReviewImage", back_populates="review_rel", cascade="all, delete-orphan")
     
     
     def to_dict(self, includeImages=False):

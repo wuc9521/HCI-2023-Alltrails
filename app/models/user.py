@@ -26,7 +26,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    bookmarks_list_rel = db.relationship("Bookmarks_List", back_populates="user_rel")
+    bookmarks_list_rel = db.relationship("BookmarksList", back_populates="user_rel")
     review_rel = db.relationship("Review", back_populates="user_rel")
     followers = db.relationship(
         "User",

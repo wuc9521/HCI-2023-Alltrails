@@ -8,7 +8,7 @@ class Trail(db.Model):
         __table_args__ = {"schema": SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False, unique=True)
+    name = db.Column(db.String(100), nullable=False)#去掉了名称字段不能重复要求 @gqc
     park = db.Column(db.String(50), nullable=True)
     city = db.Column(db.String(50), nullable=True)
     state = db.Column(db.String(50), nullable=True)
@@ -28,9 +28,9 @@ class Trail(db.Model):
     trail_images_rel = db.relationship(
         "TrailImage", back_populates="trail_rel", cascade="all, delete-orphan"
     )
-    trail_path_rel = db.relationship(
-        "TrailPath", back_populates="trail_rel", cascade="all, delete-orphan"
-    )
+    # trail_path_rel = db.relationship(
+    #     "TrailPath", back_populates="trail_rel", cascade="all, delete-orphan"
+    # )
     review_rel = db.relationship("Review", back_populates="trail_rel")
     bookmark_rel = db.relationship("Bookmark", back_populates="trail_rel")
 

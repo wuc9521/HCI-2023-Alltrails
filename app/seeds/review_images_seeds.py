@@ -1,4 +1,4 @@
-from app.models import db, Review_Image, environment, SCHEMA
+from app.models import db, ReviewImage, environment, SCHEMA
 from sqlalchemy.sql import text
 
 seed_data = [
@@ -129,7 +129,7 @@ seed_data = [
 def seed_review_images(app):
     with app.app_context():
         for data in seed_data:
-            image = Review_Image(**data)
+            image = ReviewImage(**data)
             db.session.add(image)
 
         db.session.commit()

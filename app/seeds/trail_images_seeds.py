@@ -1,7 +1,8 @@
 from ..models import db, TrailImage, environment, SCHEMA
 from sqlalchemy.sql import text
+from .trails_seeds import data
 
-seed_data = [
+seed_data1 = [
     {
         "img_src": "https://res.cloudinary.com/dkuhmdf7w/image/upload/v1685419574/Phaunos/trail-images/vernal.jpg",
         "trail_id": 1,
@@ -83,7 +84,17 @@ seed_data = [
         "trail_id": 20,
     },
 ]
+seed_data = []
 
+trail_id = 1
+for item in data:
+    img_src = item["link"]
+    item_dict = {
+        "img_src" : img_src,
+        "trail_id" : trail_id
+    }
+    trail_id = trail_id + 1
+    seed_data.append(item_dict)
 
 # @with_appcontext
 def seed_trail_images(app):
