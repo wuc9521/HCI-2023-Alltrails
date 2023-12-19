@@ -25,9 +25,7 @@ class Trail(db.Model):
     suitability = db.Column(db.String(255), nullable=False)
     # path = db.Column(db.String(255), nullable=True)
 
-    trail_images_rel = db.relationship(
-        "TrailImage", back_populates="trail_rel", cascade="all, delete-orphan"
-    )
+    trail_imagesurl = db.Column(db.String(255), nullable=True)
     # trail_path_rel = db.relationship(
     #     "TrailPath", back_populates="trail_rel", cascade="all, delete-orphan"
     # )
@@ -52,9 +50,8 @@ class Trail(db.Model):
             "attractions": self.attractions.split(","),
             "activities": self.activities.split(","),
             "suitability": self.suitability.split(","),
-            "cover": (self.trail_images_rel[0]).to_dict(),
-            "images": [image.to_dict() for image in self.trail_images_rel] if includeImages else "",
-            "avg_rating": sum([review.to_dict()["rating"] for review in self.review_rel]) / len([review.to_dict()["rating"] for review in self.review_rel]),
+            "cover": self.trail_imagesurl ,
+            "avg_rating": self.id,
             "reviews": [review.to_dict() for review in self.review_rel] if includeReviews else "",
             "num_reviews": len(self.review_rel),
         }
