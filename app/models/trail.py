@@ -23,11 +23,8 @@ class Trail(db.Model):
     attractions = db.Column(db.String(255), nullable=False)
     activities = db.Column(db.String(255), nullable=False)
     suitability = db.Column(db.String(255), nullable=False)
-    # path = db.Column(db.String(255), nullable=True)
 
-    trail_images_rel = db.relationship(
-        "TrailImage", back_populates="trail_rel", cascade="all, delete-orphan"
-    )
+    trail_imagesurl = db.Column(db.String(255), nullable=True)
     review_rel = db.relationship("Review", back_populates="trail_rel")
     bookmark_rel = db.relationship("Bookmark", back_populates="trail_rel")
 
