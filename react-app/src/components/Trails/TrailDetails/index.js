@@ -42,7 +42,7 @@ const TrailDetails = () => {
   return (
     <div className="trail-details-container">
       <div className="trail-details-card">
-        <img alt="cover" className="cover-image" src={currentTrail.cover.img_src} />
+        <img alt="cover" className="cover-image" src={currentTrail.cover} />
         <div className="trail-details-summary">
           <h1 className="trail-details-name">{currentTrail.name}</h1>
           <div className="trail-details-sub-header">
@@ -79,79 +79,23 @@ const TrailDetails = () => {
               </tr>
             </tbody>
           </table>
-          <div className="trail-details-desc">{currentTrail.description}</div>
+          <div className="trail-details-desc">"{currentTrail.description}"</div>
           <hr className="item-divider" />
-          <div className="trail-details-tiles">
-            {currentTrail.attractions.map((attraction, i) => (
-              <p key={i} id="tile">
-                {attraction}
-              </p>
-            ))}
-            {currentTrail.activities.map((activity, i) => (
-              <p key={i} id="tile">
-                {activity}
-              </p>
-            ))}
-            {currentTrail.suitability.map((suitability, i) => (
-              <p key={i} id="tile">
-                {suitability}
-              </p>
-            ))}
-          </div>
+          <div className="trail-details-weather"><WeatherForecast lat={currentTrail.lat} lng={currentTrail.lng} /></div>
           <hr className="item-divider" />
-          <div className="trail-details-weather">
-            <WeatherForecast lat={currentTrail.lat} lng={currentTrail.lng} />
-          </div>
-          <hr className="item-divider" />
-          <div className="trail-details-reviews-summary">
-            <div className="trail-details-review-graph">
-              <img id="dummy-graph" alt="dummy" src="/images/dummy-graph.png" />
-            </div>
-            <div className="trail-details-review-avg">
-              <p id="avg-rating">{Number(currentTrail.avg_rating).toFixed(1)}</p>
-              <div>
-                <div id="stars">
-                  {(() => {
-                    let stars = [];
-                    for (let i = 0; i < Math.round(Number(currentTrail.avg_rating)); i++) {
-                      stars.push(<i className="fa-solid fa-star fa-xs" />);
-                    }
-                    return stars;
-                  })()}
-                </div>
-                <p id="num-reviews">
-                  {currentTrail.num_reviews} {currentTrail.num_reviews === 1 ? "review" : "reviews"}
-                </p>
-              </div>
-            </div>
-            {user ? (
-              <div className="trail-details-review-add">
-                <ModalButton
-                  modalComponent={<ReviewForm trail={currentTrail} method="create" />}
-                  buttonContent={<button className="green-button review">Write review</button>}
-                />
-              </div>
-            ) : (
-              <button className="grey-button review" disabled>
-                {" "}
-                Write a Review
-              </button>
-            )}
-          </div>
-          <hr className="item-divider" />
-          <div className="trail-details-reviews-container">
-            {!!reviews.length
-              ? reviews.map((review, i) => (
-                  <ReviewItem key={i} review={review} trail={currentTrail} />
-                ))
-              : null}
-          </div>
         </div>
         <div className="trail-details-sidebar">
-          <h2 id="sidebar-header">Nearby Trails</h2>
-          {allTrails.map((trail, i) => (
-            <TrailItem key={trail.id} trail={trail} nameOfClass="trail" />
-          ))}
+          <h2 id="sidebar-header"><center>Nearby Trails</center></h2>
+          <div className="trail-item-container">
+          {(() => {
+            let topTen = [];
+            for (let i = 0; i < Math.min(10, allTrails.length); i++) {
+              const trail = allTrails[i];
+              topTen.push(<TrailItem key={i} trail={trail} nameOfClass="splash" />);
+            }
+            return topTen;
+          })()}
+        </div>
         </div>
       </div>
     </div>

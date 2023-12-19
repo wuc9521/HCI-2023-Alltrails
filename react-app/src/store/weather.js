@@ -11,6 +11,10 @@ export const getWeather = (weather) => ({
 });
 
 export const getWeatherThunk = (lat, lng) => async (dispatch) => {
+  //如果lat, lng不是14位小数
+  lat = lat.toFixed(14);
+  lng = lng.toFixed(14);
+  //@wct: sb ycy 曾经把经纬度搞反了
   const res = await fetch(
     `${baseUrl}/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=imperial`
   );

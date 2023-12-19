@@ -22,6 +22,7 @@ for item in data:
     elevation = item["elevation"]
     route_type = item["route_type"]
     description = item["description"]
+    link = item["link"]
 
     item_dict = {
           "name": name,
@@ -39,6 +40,7 @@ for item in data:
           "attractions": "null",
           "activities": "null",
           "suitability": "null",
+          "trail_imagesurl": link
        }
     seed_data.append(item_dict)
 
@@ -69,6 +71,7 @@ def seed_trails(app):
                 existing_trail.elevation = trail.elevation
                 existing_trail.route_type = trail.route_type
                 existing_trail.description = trail.description
+                existing_trail.trail_imagesurl = trail.trail_imagesurl
                 db.session.commit()
                 print(f"重复记录已替换：{trail.name}")
 

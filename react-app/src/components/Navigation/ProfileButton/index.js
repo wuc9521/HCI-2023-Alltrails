@@ -29,9 +29,9 @@ function ProfileButton({ user }) {
   }, [showMenu]);
 
   const goToProfile = (e) => {
-      e.preventDefault()
-      setShowMenu(false)
-      history.push("/profile/feed")
+    e.preventDefault()
+    setShowMenu(false)
+    history.push("/profile/feed")
   }
 
   const handleLogout = async (e) => {
@@ -66,12 +66,8 @@ function ProfileButton({ user }) {
             <div className="dropdown-username">Hello, {user.first_name}</div>
             <div className="dropdown-email">{user.email}</div>
             <hr className="item-divider" />
-            <div className="dropdown-button" onClick={(e) => goToProfile(e)}>
-              Profile
-            </div>
-            <div className="dropdown-button" onClick={handleLogout}>
-              Log Out
-            </div>
+            <div className="dropdown-button" onClick={(e) => goToProfile(e)}>Profile</div>
+            <div className="dropdown-button" onClick={handleLogout}>Log out</div>
           </div>
         )}
       </div>

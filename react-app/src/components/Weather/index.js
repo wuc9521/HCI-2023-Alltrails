@@ -34,16 +34,11 @@ const WeatherForecast = ({ lat, lng }) => {
     <div className="forecast-container">
       {formattedForecast.map((day, i) => (
         <div key={i} className="forecast-item">
-          <p className="forecast-day">{formattedDay(day.dt)}</p>
-          <img
-            alt={day.dt}
-            style={{ height: "60px" }}
-            src={`\\images\\weather-icons\\logos-v2\\${day.weather[0].icon}.png`}
-          />
+          <p className="forecast-day"><center>{formattedDay(day.dt)}</center></p>
+          <br/>
+          <img alt={day.dt} style={{ height: "65px" }} src={`\\images\\weather-icons\\logos-v2\\${day.weather[0].icon}.png`}/>
           <p className="forecast-desc">{day.weather[0].description}</p>
-          <p className="forecast-temp">
-            {Math.round(day.temp.min)}° / {Math.round(day.temp.max)}° F
-          </p>
+          <p className="forecast-temp"><center>{Math.round(day.temp.min)}° / {Math.round(day.temp.max)}° F</center></p>
         </div>
       ))}
     </div>

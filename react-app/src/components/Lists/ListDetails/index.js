@@ -66,40 +66,28 @@ function ListDetails() {
                   onChange={(e) => setTitle(e.target.value)}
                 />
               ) : (
-                <>{list.title}</>
+                <center>{list.title}</center>
               )}
             </h1>
             <div className="list-details-ptags">
-              <p id="list-details-len">
-                {list.len} {list.len === 1 ? "bookmark" : "bookmarks"}
-              </p>
-              <p className="list-details-edit" onClick={(e) => handleEdit(e, list.id)}>
-                edit list
-              </p>
+              <p id="list-details-len">{list.len} {list.len === 1 ? "bookmark" : "bookmarks"}</p>
+              <p className="list-details-edit" onClick={(e) => handleEdit(e, list.id)}>edit list</p>
             </div>
           </div>
           <div className="list-details-bookmarks">
-            {bookmarks.length
-              ? bookmarks.map((bookmark, i) => (
-                  <TrailItem
-                    key={i}
-                    trail={bookmark.trail}
-                    nameOfClass="bookmark"
-                    editing={edit}
-                    bookmarkId={bookmark.id}
-                    listId={listId}
-                  />
-                ))
+            {bookmarks.length ? bookmarks.map((bookmark, i) => (
+              <TrailItem key={i} trail={bookmark.trail} nameOfClass="bookmark" editing={edit} bookmarkId={bookmark.id} listId={listId} />
+            ))
               : <div className="no-bookmarks">
-                <img alt="backpack-icon" id="backpack" src="/images/icons/backpack.png"/>
-                  <h2 className="primary-color">Start Saving Trails</h2>
-                  <p className="secondary-color" style={{fontWeight: "500"}}>Tap the bookmark icon on any trail to turn this into your adventure wishlist</p>
-                  <button 
-                  className="green-button" 
+                <img alt="backpack-icon" id="backpack" src="/images/icons/backpack.png" />
+                <h2 className="primary-color">Start Saving Trails</h2>
+                <p className="secondary-color" style={{ fontWeight: "500" }}>Tap the bookmark icon on any trail to turn this into your adventure wishlist</p>
+                <button
+                  className="green-button"
                   id="explorer-trails-button"
                   onClick={(e) => handleClick(e)}
-                  >Explorer Trails</button>
-                </div>}
+                >Explorer Trails</button>
+              </div>}
           </div>
         </div>
         <div className="list-details-content-right">
