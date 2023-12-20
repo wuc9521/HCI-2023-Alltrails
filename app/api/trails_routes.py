@@ -1,7 +1,10 @@
+from ast import FunctionDef
+from operator import or_
 from flask import Blueprint, request, make_response, jsonify
 from flask_login import login_required, current_user
 from ..models import db, Trail, Review, Bookmark
 from ..forms import ReviewForm
+from sqlalchemy.sql.expression import func
 
 trails_routes = Blueprint("trails", __name__)
 
@@ -15,7 +18,19 @@ def validation_errors_to_error_messages(validation_errors):
         for error in validation_errors[field]:
             errorMessages[f"{field}"] = f"{error}"
     return errorMessages
-#------------------------------------------------------------------------------------#
+
+
+@trails_routes.route('/search', methods=['POST'])
+def search_trails():
+    query = request.data.decode('utf-8')  # 获取搜索关键字
+
+    # 在数据库中执行模糊查询
+    trails = Trail.query.filter(or_(Trail.name.ilike(f"%{query}%"), Trail.city.ilike(f"%{query}%"))).all()
+
+    # 将查询结果转换为字典列表
+    results = [trail.to_dict() for trail in trails]
+
+    return jsonify(query=query, results=results), 200
 
 @trails_routes.route("")
 def get_all_trails():
