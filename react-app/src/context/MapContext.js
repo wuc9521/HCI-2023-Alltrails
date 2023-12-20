@@ -12,12 +12,8 @@ export default function MapProvider({ children }) {
   return (
     <MapContext.Provider
       value={{
-        currentZoom,
-        setCurrentZoom,
-        currentLat,
-        setCurrentLat,
-        currentLng,
-        setCurrentLng
+        currentZoom, setCurrentZoom, currentLat,
+        setCurrentLat, currentLng, setCurrentLng
       }}
     >
       {children}
