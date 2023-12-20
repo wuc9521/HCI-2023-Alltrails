@@ -1,0 +1,75 @@
+[
+  {
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10448466/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Mount Gui",
+    "park": "None",
+    "city": "Wuhan",
+    "state": "Hubei",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "1.9km",
+    "elevation": "81m",
+    "route_type": "Point to point",
+    "description": "Check out this 1.9-km point-to-point trail near Wuhan Shi, Hubei. Generally considered a moderately challenging route, it takes an average of 36 min to complete. This is a popular trail for hiking and walking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10385472/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Wudang Mountains to Nanyan",
+    "park": "None",
+    "city": "Shiyan",
+    "state": "Hubei",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "4.0km",
+    "elevation": "129m",
+    "route_type": "Point to point",
+    "description": "Check out this 4.0-km point-to-point trail near Shiyan Shi, Hubei. Generally considered a moderately challenging route, it takes an average of 2 h 8 min to complete. This is a popular trail for hiking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10385473/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Wudang Mountains",
+    "park": "None",
+    "city": "Shiyan",
+    "state": "Hubei",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "2.9km",
+    "elevation": "692m",
+    "route_type": "Point to point",
+    "description": "Experience this 2.9-km point-to-point trail near Shiyan Shi, Hubei. Generally considered a challenging route, it takes an average of 1 h 44 min to complete. This is a popular trail for hiking and walking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10410576/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Nan Yan Palace",
+    "park": "None",
+    "city": "Shyan",
+    "state": "Hubei",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "2.3km",
+    "elevation": "109m",
+    "route_type": "Out & back",
+    "description": "Discover this 2.3-km out-and-back trail near Shiyan Shi, Hubei. Generally considered a moderately challenging route, it takes an average of 46 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10410578/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Purple Cloud Temple",
+    "park": "None",
+    "city": "Shiyan",
+    "state": "Hubei",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "0.5km",
+    "elevation": "28m",
+    "route_type": "Out & back",
+    "description": "Enjoy this 0.5-km out-and-back trail near Shiyan Shi, Hubei. Generally considered a moderately challenging route, it takes an average of 11 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10410582/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Five Dragons Temple via Wu Long Path",
+    "park": "None",
+    "city": "Shiyan",
+    "state": "Hubei",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "12.7km",
+    "elevation": "1001m",
+    "route_type": "Out & back",
+    "description": "Check out this 12.7-km out-and-back trail near Shiyan Shi, Hubei. Generally considered a challenging route, it takes an average of 5 h 44 min to complete. This trail is great for hiking, and it's unlikely you'll encounter many other people while exploring."
+  }
+]
