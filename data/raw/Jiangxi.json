@@ -1,0 +1,75 @@
+[
+  {
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10420058/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Sanqing Mountains Loop",
+    "park": "None",
+    "city": "Shangrao",
+    "state": "Jiangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "16.4km",
+    "elevation": "1525m",
+    "route_type": "Loop",
+    "description": "Enjoy this 16.4-km loop trail near Shangrao, Jiangxi. Generally considered a challenging route, it takes an average of 8 h 12 min to complete. This is a very popular area for birding, camping, and hiking, so you'll likely encounter other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10946833/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Wugongshan_ Longshan Village to Dongjiang Village",
+    "park": "None",
+    "city": "Pingxiang",
+    "state": "Jiangxi",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "14.0km",
+    "elevation": "1489m",
+    "route_type": "Point to point",
+    "description": "Get to know this 14.0-km point-to-point trail near Pingxiang, Jiangxi. Generally considered a challenging route, it takes an average of 7 h 45 min to complete. This is a very popular area for backpacking, camping, and hiking, so you'll likely encounter other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10772079/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Mount Lu",
+    "park": "Lushan National Key Scenic Spots",
+    "city": "None",
+    "state": "Jiangxi",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "19.8km",
+    "elevation": "1535m",
+    "route_type": "Point to point",
+    "description": "Explore this 19.8-km point-to-point trail near Jiujiang, Jiangxi. Generally considered a challenging route, it takes an average of 8 h 27 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10777965/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Dayueshan",
+    "park": "Lushan National Key Scenic Spots",
+    "city": "None",
+    "state": "Jiangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "6.3km",
+    "elevation": "327m",
+    "route_type": "Out & back",
+    "description": "Enjoy this 6.3-km out-and-back trail near Jiujiang, Jiangxi. Generally considered a moderately challenging route, it takes an average of 2 h 15 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10925907/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Sanbai Mountain",
+    "park": "None",
+    "city": "Ganzhou",
+    "state": "Jiangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "2.3km",
+    "elevation": "120m",
+    "route_type": "Loop",
+    "description": "Discover this 2.3-km loop trail near Ganzhou Shi, Jiangxi. Generally considered a moderately challenging route, it takes an average of 49 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10913818/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Mount Lu Loop",
+    "park": "Lushan National Key Scenic Spots",
+    "city": "None",
+    "state": "Jiangxi",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "20.9km",
+    "elevation": "1125m",
+    "route_type": "Loop",
+    "description": "Experience this 20.9-km loop trail near Jiujiang, Jiangxi. Generally considered a challenging route, it takes an average of 7 h 37 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  }
+]
