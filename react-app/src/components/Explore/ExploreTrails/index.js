@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTrailsThunk } from "../../../store/trails";
 import { useParams, useHistory } from "react-router-dom";
 import ExploreItem from "../ExploreItem";
-import Map from "../../Map";
+import MapTrails from "../../Map/MapTrails";
 import "./ExploreTrails.css";
 
 function ExploreTrails() {
@@ -32,7 +32,7 @@ function ExploreTrails() {
         </div>
         <div className="list-details-content-right">
         {
-          <Map trails={allTrails} />
+          <MapTrails trails={allTrails} />
         }
         </div>
       </div>
