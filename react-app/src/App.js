@@ -31,12 +31,12 @@ function App() {
           <Route path="/trails/:trailId" component={TrailDetails} />
           <Route path="/profile/lists/:listId">
             <ProtectedRoute>
-              <ListDetails/>
+              <ListDetails />
             </ProtectedRoute>
           </Route>
           <Route path="/profile">
             <ProtectedRoute>
-              <ProfilePage/>
+              <ProfilePage />
             </ProtectedRoute>
           </Route>
           <Route path="/" component={SplashPage} />

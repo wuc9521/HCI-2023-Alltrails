@@ -1,3 +1,4 @@
+from sqlalchemy.exc import IntegrityError
 from sqlite3 import IntegrityError
 from ..models import db, Trail, environment, SCHEMA
 from sqlalchemy.sql import text
@@ -25,29 +26,28 @@ for item in data:
     link = item["link"]
 
     item_dict = {
-          "name": name,
-          "park": park,
-          "city": city,
-          "state": state,
-          "country": country,
-          "lat": lat,
-          "lng": lng,
-          "difficulty": difficulty,
-          "length": length,
-          "elevation": elevation,
-          "route_type": route_type,
-          "description": description,
-          "attractions": "null",
-          "activities": "null",
-          "suitability": "null",
-          "trail_imagesurl": link
-       }
+        "name": name,
+        "park": park,
+        "city": city,
+        "state": state,
+        "country": country,
+        "lat": lat,
+        "lng": lng,
+        "difficulty": difficulty,
+        "length": length,
+        "elevation": elevation,
+        "route_type": route_type,
+        "description": description,
+        "attractions": "null",
+        "activities": "null",
+        "suitability": "null",
+        "trail_imagesurl": link
+    }
     seed_data.append(item_dict)
 
 
-
 # @with_appcontext
-from sqlalchemy.exc import IntegrityError
+
 
 def seed_trails(app):
     with app.app_context():
@@ -76,6 +76,8 @@ def seed_trails(app):
                 print(f"重复记录已替换：{trail.name}")
 
 # @with_appcontext
+
+
 def undo_trails(app):
     with app.app_context():
         if environment == "production":
