@@ -2,6 +2,7 @@
 export const GET_TRAILS = "trails/GET_TRAILS";
 export const GET_SINGLE_TRAIL = "trails/GET_SINGLE_TRAIL";
 export const UPDATE_TRAIL = "trails/UPDATE_TRAIL";
+export const SEARCH_TRAILS = "trails/SEARCH_TRAILS";
 
 ///////////// Action Creators ///////////////
 
@@ -22,6 +23,11 @@ export const updateTrail = (trail) => ({
   trail,
 });
 
+// search trails
+export const searchTrails = (trails) => ({
+  type: SEARCH_TRAILS,
+  trails,
+});
 
 /////////////////// Thunks ///////////////////
 
@@ -50,6 +56,23 @@ export const updateTrailThunk = (trailId) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     await dispatch(updateTrail(data));
+    return data;
+  }
+};
+
+// search trails
+export const searchTrailsThunk = (query) => async (dispatch) => {
+  const res = await fetch("/api/trails/search", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    await dispatch(searchTrails(data));
     return data;
   }
 };

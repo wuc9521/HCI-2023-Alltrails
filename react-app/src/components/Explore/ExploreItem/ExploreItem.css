@@ -1,0 +1,96 @@
+/* ---- Splash Page CSS ----- */
+.trail-item.splash {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .trail-image{
+    height: 175px;
+    border-radius: 25px;
+  }
+  
+  /* ---- Bookmark Page CSS ----- */
+  .trail-item {
+    margin: 15px auto;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .trail-image.bookmark {
+    height: 225px;
+    /* width: 100%; */
+    border-radius: 25px;
+  }
+  
+  /* ---- Trail Details Page CSS ----- */
+  .trail-item.trail {
+    margin: 15px auto;
+    position: relative;
+    width: 250px;
+    cursor: pointer;
+  }
+  
+  .trail-image.trail {
+    height: 200px;
+    width: 100%;
+    border-radius: 25px;
+  }
+  
+  /* ---- General CSS ----- */
+  .trail-text {
+    margin: 5px 0;
+  }
+  
+  
+  #trail-link:hover {
+   text-decoration: underline;
+  }
+  
+  #trail-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #2b381f;
+  }
+  
+  #trail-diff-review {
+    font-size: 1rem;
+    color: #6d7667;
+  }
+  #trail-park,
+  #trail-len {
+    font-size: 1rem;
+    color: #6d7667;
+  }
+  
+  .trash-icon {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    height: 10px;
+    width: 40px;
+  }
+  
+  .item-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    height: 225px;
+    width: 100%;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .fa-trash-can.trail {
+    color: white;
+  }
+  
+  .fa-bookmark,
+  .fa-trash-can {
+    z-index: 2;
+  }
+  

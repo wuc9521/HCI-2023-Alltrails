@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTrailsThunk } from "../../../store/trails";
 import { useParams, useHistory } from "react-router-dom";
-import TrailItem from "../../Trails/TrailItem";
+import ExploreItem from "../ExploreItem";
 import Map from "../../Map";
 import "./ExploreTrails.css";
 
@@ -18,19 +18,22 @@ function ExploreTrails() {
       <div className="explore-details-content">
         <div className="explore-details-content-left">
           <div className="list-details-bookmarks">
-            <div className="list-details-bookmarks-header">
+            <div>
               <h2><center>Explore Trails</center></h2>
             </div>
-            <div className="list-details-bookmarks-content">
+            <div>
+              <center>
               {allTrails.map((trail) => (
-                <TrailItem key={trail.id} trail={trail} />
+                <ExploreItem key={trail.id} trail={trail} />
               ))}
+              </center>
             </div>
           </div>
         </div>
         <div className="list-details-content-right">
-        {/* <Map bookmarks={allTrails} /> */}
-        {/* 要是js也有多态就好了hhh */}
+        {
+          <Map trails={allTrails} />
+        }
         </div>
       </div>
     </div>

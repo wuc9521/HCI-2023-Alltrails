@@ -10,7 +10,7 @@ import ProfilePage from "./components/ProfilePage";
 import TrailDetails from "./components/Trails/TrailDetails";
 import ListDetails from "./components/Lists/ListDetails";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import ExploreTrails from "./components/Trails/ExploreTrails";
+import ExploreTrails from "./components/Explore/ExploreTrails";
 
 
 function App() {
