@@ -1,16 +1,16 @@
 import json
 
 # 读取 JavaScript 文件
-with open('./data/Zhejiang.json', 'r', encoding='utf-8') as file:
+with open('../raw/Anhui.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-exclude = [13,17]
+exclude = [4,7,8]
 
 num = 0
 for obj in data:
 
     print(obj['name'])
-    file_name = './data/zhejiang/' + obj['name'] + '.js'
+    file_name = '../path/anhui/' + obj['name'] + '.js'
     with open(file_name, 'r') as tfile:
         js_code = tfile.read()
         js_data = json.loads(js_code)
@@ -34,7 +34,7 @@ for obj in data:
             print("-------------------------------")
         num += 1
 
-with open('dataReformat/zhejiang.json', 'w', encoding='utf-8') as file:
+with open('../reformat/anhui.json', 'w', encoding='utf-8') as file:
     json.dump(data, file, ensure_ascii=False)
 
 
