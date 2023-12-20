@@ -1,11 +1,12 @@
 import dotenv from "dotenv";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useMap } from "../../../context/MapContext";
-import { GoogleMap, LoadScript, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "./MapTrails.css";
 dotenv.config();
 
-const MapTrails = ({ trails }) => {
+const MapComponent = ({ JSONDataList }) => {
+    const [map, setMap] = useState(null);
     const { currentZoom, setCurrentZoom, currentLat, setCurrentLat, currentLng, setCurrentLng } = useMap();
     const center = useMemo(() => ({ lat: currentLat, lng: currentLng }), [currentLat, currentLng]);
     const mapOptions = {
@@ -14,6 +15,36 @@ const MapTrails = ({ trails }) => {
         mapTypeId: "terrain",
     };
 
+    const onLoad = (map) => {
+        setMap(map);
+    };
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            setCurrentLat(position.coords.latitude);
+            setCurrentLng(position.coords.longitude);
+            setCurrentZoom(18);
+        });
+        if (map && JSONDataList) {
+            // 遍历所有的 GeoJSON 数据，将其添加到 Data 组件中
+            JSONDataList.forEach((geoJSONData) => {
+                map.data.addGeoJson(geoJSONData);
+            });
+        }
+    }, [map, JSONDataList]);
+
+    return (
+        <GoogleMap
+            mapContainerStyle={{ height: '100vh', width: '100%' }} center={mapOptions.center} zoom={mapOptions.zoom} onLoad={onLoad} >
+            {/* <LoadScript /> */}
+            {/* <Data options={{ controlPosition: 2, controls: true }} /> */}
+        </GoogleMap>
+    );
+};
+
+const MapTrails = ({ trails }) => {
+    const [JSONDataList, setJSONDataList] = useState([]);
+
     useEffect(() => {
         const fetchGeoJSON = async () => {
             const requests = trails.map((trail) => {
@@ -21,11 +52,7 @@ const MapTrails = ({ trails }) => {
                 const state = trail.state && trail.state !== "None" ? `${trail.state.toLowerCase()}/` : '';
                 const city = trail.city !== "None" ? trail.city.toLowerCase() + '/' : '';
                 const name = trail.name.replace(/[\s.-]/g, '_');
-    
                 const url = state !== '' ? `/path/${country}${state}${name}.geojson` : `/path/${country}${city}${name}.geojson`;
-    
-                console.log(url);
-    
                 return fetch(url)
                     .then((response) => response.json())
                     .catch((error) => {
@@ -33,48 +60,26 @@ const MapTrails = ({ trails }) => {
                         return null; // 返回 null 表示请求失败，但仍然会被包含在 Promise.all 的结果中
                     });
             });
-    
             const geoJSONDataList = await Promise.all(requests);
-            console.log(geoJSONDataList);
-            return geoJSONDataList;
+            setJSONDataList(geoJSONDataList);
         };
         fetchGeoJSON();
     }, [trails]);
 
-    const { isLoaded } = useLoadScript({
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
         googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
+        libraries: ['geometry', 'drawing'],
     });
+
     if (!isLoaded) return (
         <h1>Loading...</h1>
     );
-    // return (
-    //     // <LoadScript>
-    //     //     <GoogleMap mapContainerStyle={{ height: "100vh", width: "100%" }} center={mapOptions.center} zoom={mapOptions.zoom}>
-    //     //         {/* Render Markers or other components based on GeoJSON data */}
-    //     //         {/* Example using Marker */}
-    //     //         {/* <Marker position={{ lat: 0, lng: 0 }} /> */}
-
-    //     //     </GoogleMap>
-    //     // </LoadScript>
-    //     <div id="map">
-    //         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXhHCiGE-x7aQoiIEz7vMatZaG69litLg&callback=initMap"></script>
-    //     </div>
-    // );
     return (
         <div>
-          {isLoaded ? (
-            <LoadScript googleMapsApiKey={process.env.REACT_APP_MAPS_API_KEY}>
-              <GoogleMap mapContainerStyle={{ height: "400px", width: "100%" }} center={mapOptions.center} zoom={mapOptions.zoom}>
-                {trails.map((trail, index) => (
-                  <Marker key={index} position={{ lat: trail.lat, lng: trail.lng }} />
-                ))}
-              </GoogleMap>
-            </LoadScript>
-          ) : (
-            <h1>Loading...</h1>
-          )}
+            <MapComponent JSONDataList={JSONDataList} />
         </div>
-      );
+    );
 };
 
 export default MapTrails;
