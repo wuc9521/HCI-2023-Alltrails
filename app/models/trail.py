@@ -8,7 +8,7 @@ class Trail(db.Model):
         __table_args__ = {"schema": SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)#去掉了名称字段不能重复要求 @gqc
+    name = db.Column(db.String(100), nullable=False, unique=False)#去掉了名称字段不能重复要求 @gqc
     park = db.Column(db.String(50), nullable=True)
     city = db.Column(db.String(50), nullable=True)
     state = db.Column(db.String(50), nullable=True)
