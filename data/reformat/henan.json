@@ -1,1 +1,62 @@
-[{"link": "https://www.alltrails.com/api/alltrails/v3/trails/10902926/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Pingdingshan Summit Short Trail", "park": "None", "city": "Pingdingshan", "state": "Henan", "country": "China", "difficulty": "Moderate", "length": "1.1km", "elevation": "135m", "route_type": "Out & back", "description": "Get to know this 1.1-km out-and-back trail near Pingdingshan Shi, Henan. Generally considered a moderately challenging route, it takes an average of 40 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.", "lat": 33.77007, "lng": 113.32088}, {"link": "https://www.alltrails.com/api/alltrails/v2/trails/10895391/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Pingdingshan Summit", "park": "None", "city": "Pingdingshan", "state": "Henan", "country": "China", "difficulty": "Moderate", "length": "11.1km", "elevation": "414m", "route_type": "Out & back", "description": "Try this 11.1-km out-and-back trail near Pingdingshan Shi, Henan. Generally considered a moderately challenging route, it takes an average of 3 h 24 min to complete. This is a popular trail for hiking, road biking, and walking, but you can still enjoy some solitude during quieter times of day. Dogs are welcome and may be off-leash in some areas.", "lat": 33.75874, "lng": 113.31957}, {"link": "https://www.alltrails.com/api/alltrails/v2/trails/10896768/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Baiguishan Reservoir Cycle Route", "park": "None", "city": "Pingdingshan", "state": "Henan", "country": "China", "difficulty": "Moderate", "length": "49.1km", "elevation": "621m", "route_type": "Loop", "description": "Check out this 49.1-km loop trail near Pingdingshan Shi, Henan. Generally considered a moderately challenging route, it takes an average of 10 h 47 min to complete. This is a popular trail for birding, road biking, and running, but you can still enjoy some solitude during quieter times of day. Dogs are welcome and may be off-leash in some areas.", "lat": 33.72143, "lng": 113.253}, {"link": "https://www.alltrails.com/api/alltrails/v2/trails/10896429/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Zhanhe River Loop", "park": "None", "city": "Pingdingshan", "state": "Zhejiang", "country": "China", "difficulty": "Easy", "length": "18.7km", "elevation": "119m", "route_type": "Loop", "description": "Experience this 18.7-km loop trail near Pingdingshan Shi, Henan. Generally considered an easy route, it takes an average of 3 h 42 min to complete. This trail is great for hiking, road biking, and running, and it's unlikely you'll encounter many other people while exploring.", "lat": 33.7289, "lng": 113.3158}]
+[
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v3/trails/10902926/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Pingdingshan Summit Short Trail",
+        "park": "None",
+        "city": "Pingdingshan",
+        "state": "Henan",
+        "country": "China",
+        "difficulty": "Moderate",
+        "length": "1.1km",
+        "elevation": "135m",
+        "route_type": "Out & back",
+        "description": "Get to know this 1.1-km out-and-back trail near Pingdingshan Shi, Henan. Generally considered a moderately challenging route, it takes an average of 40 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.",
+        "lat": 33.77007,
+        "lng": 113.32088
+    },
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v2/trails/10895391/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Pingdingshan Summit",
+        "park": "None",
+        "city": "Pingdingshan",
+        "state": "Henan",
+        "country": "China",
+        "difficulty": "Moderate",
+        "length": "11.1km",
+        "elevation": "414m",
+        "route_type": "Out & back",
+        "description": "Try this 11.1-km out-and-back trail near Pingdingshan Shi, Henan. Generally considered a moderately challenging route, it takes an average of 3 h 24 min to complete. This is a popular trail for hiking, road biking, and walking, but you can still enjoy some solitude during quieter times of day. Dogs are welcome and may be off-leash in some areas.",
+        "lat": 33.75874,
+        "lng": 113.31957
+    },
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v2/trails/10896768/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Baiguishan Reservoir Cycle Route",
+        "park": "None",
+        "city": "Pingdingshan",
+        "state": "Henan",
+        "country": "China",
+        "difficulty": "Moderate",
+        "length": "49.1km",
+        "elevation": "621m",
+        "route_type": "Loop",
+        "description": "Check out this 49.1-km loop trail near Pingdingshan Shi, Henan. Generally considered a moderately challenging route, it takes an average of 10 h 47 min to complete. This is a popular trail for birding, road biking, and running, but you can still enjoy some solitude during quieter times of day. Dogs are welcome and may be off-leash in some areas.",
+        "lat": 33.72143,
+        "lng": 113.253
+    },
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v2/trails/10896429/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Zhanhe River Loop",
+        "park": "None",
+        "city": "Pingdingshan",
+        "state": "Zhejiang",
+        "country": "China",
+        "difficulty": "Easy",
+        "length": "18.7km",
+        "elevation": "119m",
+        "route_type": "Loop",
+        "description": "Experience this 18.7-km loop trail near Pingdingshan Shi, Henan. Generally considered an easy route, it takes an average of 3 h 42 min to complete. This trail is great for hiking, road biking, and running, and it's unlikely you'll encounter many other people while exploring.",
+        "lat": 33.7289,
+        "lng": 113.3158
+    }
+]

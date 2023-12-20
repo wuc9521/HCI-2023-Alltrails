@@ -1,8 +1,7 @@
 import dotenv from "dotenv";
 import React, { useEffect, useMemo, useState } from "react";
 import { useMap } from "../../../context/MapContext";
-import { GoogleMap, LoadScript, useJsApiLoader, Marker } from "@react-google-maps/api";
-import "./MapTrails.css";
+import { GoogleMap, useJsApiLoader, Data } from "@react-google-maps/api";
 dotenv.config();
 
 const MapComponent = ({ JSONDataList }) => {
@@ -28,6 +27,35 @@ const MapComponent = ({ JSONDataList }) => {
         if (map && JSONDataList) {
             // 遍历所有的 GeoJSON 数据，将其添加到 Data 组件中
             JSONDataList.forEach((geoJSONData) => {
+                map.data.setStyle((feature) => {
+                    let color = "lightblue";
+
+                    if (feature.getProperty("isColorful")) {
+                        color = feature.getProperty("color");
+                    }
+                    return /** @type {!google.maps.Data.StyleOptions} */ {
+                        fillColor: color,
+                        strokeColor: color,
+                        strokeWeight: 2,
+                    };
+                });
+                // When the user clicks, set 'isColorful', changing the color of the letters.
+                map.data.addListener("click", (event) => {
+                    event.feature.setProperty("isColorful", true);
+                });
+
+                // When the user hovers, tempt them to click by outlining the letters.
+                // Call revertStyle() to remove all overrides. This will use the style rules
+                // defined in the function passed to setStyle()
+                map.data.addListener("mouseover", (event) => {
+                    map.data.revertStyle();
+                    map.data.overrideStyle(event.feature, { strokeWeight: 8 });
+                });
+
+                map.data.addListener("mouseout", (event) => {
+                    map.data.revertStyle();
+                });
+
                 map.data.addGeoJson(geoJSONData);
             });
         }
@@ -35,9 +63,14 @@ const MapComponent = ({ JSONDataList }) => {
 
     return (
         <GoogleMap
-            mapContainerStyle={{ height: '100vh', width: '100%' }} center={mapOptions.center} zoom={mapOptions.zoom} onLoad={onLoad} >
-            {/* <LoadScript /> */}
-            {/* <Data options={{ controlPosition: 2, controls: true }} /> */}
+            mapContainerStyle={{
+                height: '100vh',
+                width: '100%',
+            }}
+            center={mapOptions.center}
+            zoom={mapOptions.zoom}
+            onLoad={onLoad} >
+            <Data options={{ controlPosition: 2, controls: true }} />
         </GoogleMap>
     );
 };
