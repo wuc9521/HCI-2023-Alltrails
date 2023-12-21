@@ -60,6 +60,7 @@ const MapComponent = ({ JSONDataList }) => {
                     map.data.overrideStyle(event.feature, { strokeWeight: 8 });
                 });
                 map.data.addListener("mouseout", (event) => { map.data.revertStyle(); });
+                console.log(geoJSONData)
                 map.data.addGeoJson(geoJSONData);
             });
             console.log(JSONDataList)
@@ -77,21 +78,27 @@ const MapComponent = ({ JSONDataList }) => {
             onLoad={onLoad} >
             <Data options={{ controlPosition: 2, controls: true }} />
             {JSONDataList.map((geoJSONData, index) => (
-                geoJSONData.features[0].geometry.coordinates[0][0] !== undefined ? (
-                    <Marker
-                        key={index}
-                        position={{ lat: geoJSONData.features[0].geometry.coordinates[0][0][0], lng: geoJSONData.features[0].geometry.coordinates[0][0][1] }}
-                        // onClick={() => onMarkerClick(geoJSONData)}
-                        // icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"}
-                        animation={window.google.maps.Animation.DROP}
-                    />
-                ) : (
-                    <Marker
-                        key={index}
-                        position={{ lat: geoJSONData.features[0].geometry.coordinates[0], lng: geoJSONData.features[0].geometry.coordinates[1] }}
-                        onClick={() => onMarkerClick(geoJSONData)}
-                    />
-                )
+                   geoJSONData ? (
+                    geoJSONData.features &&
+                    geoJSONData.features[0].geometry.coordinates[0][0] !== undefined ?
+                    (
+                        <Marker
+                            key={index}
+                            position={{ lat: geoJSONData.features[0].geometry.coordinates[0][0][0], lng: geoJSONData.features[0].geometry.coordinates[0][0][1] }}
+                            // onClick={() => onMarkerClick(geoJSONData)}
+                            // icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"}
+                            animation={window.google.maps.Animation.DROP}
+                        />
+                    ) : (
+                        <Marker
+                            key={index}
+                            position={{ lat: geoJSONData.features[0].geometry.coordinates[0], lng: geoJSONData.features[0].geometry.coordinates[1] }}
+                            onClick={() => onMarkerClick(geoJSONData)}
+                        />
+                    )
+                   ) : (
+                          <></>
+                   )
             ))}
             {selectedMarker && (
                 <InfoWindow
