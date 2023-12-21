@@ -1,0 +1,99 @@
+[
+  {
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10411475/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Xiang Gong Hill",
+    "park": "None",
+    "city": "XingPing",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "10.8km",
+    "elevation": "463m",
+    "route_type": "Out & back",
+    "description": "Check out this 10.8-km out-and-back trail near XingPing, Guangxi. Generally considered a moderately challenging route, it takes an average of 3 h 29 min to complete. This is a popular trail for hiking, running, and walking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10522780/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Ping’An - Rice Terrace",
+    "park": "None",
+    "city": "Guilin",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "2.9km",
+    "elevation": "168m",
+    "route_type": "Out & back",
+    "description": "Check out this 2.9-km out-and-back trail near Guilin Shi, Guangxi. Generally considered a moderately challenging route, it takes an average of 1 h 5 min to complete. This is a popular trail for hiking and walking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10411512/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Yangdi to Xingping via Li River",
+    "park": "None",
+    "city": "Guilin",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "15.3km",
+    "elevation": "711m",
+    "route_type": "Point to point",
+    "description": "Head out on this 15.3-km point-to-point trail near Guilin Shi, Guangxi. Generally considered a challenging route, it takes an average of 5 h 12 min to complete. This is a popular trail for hiking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10621043/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Thousand Layers to the Heaven Trail",
+    "park": "None",
+    "city": "Guilin",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "5.6km",
+    "elevation": "327m",
+    "route_type": "Out & back",
+    "description": "Discover this 5.6-km out-and-back trail near Guilin Shi, Guangxi. Generally considered a moderately challenging route, it takes an average of 2 h 7 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v3/trails/10261107/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Weizhou Island Walk",
+    "park": "None",
+    "city": "Gongshan",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "20.1km",
+    "elevation": "329m",
+    "route_type": "Point to point",
+    "description": "Explore this 20.1-km point-to-point trail near Gongshan, Guangxi. Generally considered a moderately challenging route, it takes an average of 4 h 41 min to complete. This is a popular trail for birding, hiking, and running, but you can still enjoy some solitude during quieter times of day. The trail is open year-round and is beautiful to visit anytime. Dogs are welcome, but must be on a leash."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v2/trails/10785296/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Danxia Bajiao Scenic Area",
+    "park": "Bajiaozhai Scenic Area",
+    "city": "None",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Hard",
+    "length": "6.8km",
+    "elevation": "617m",
+    "route_type": "Loop",
+    "description": "Head out on this 6.8-km loop trail near Guilin Shi, Guangxi. Generally considered a challenging route, it takes an average of 3 h 21 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v3/trails/10441057/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Reed Flute Caves",
+    "park": "None",
+    "city": "Guilin",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Moderate",
+    "length": "2.1km",
+    "elevation": "85m",
+    "route_type": "Out & back",
+    "description": "Get to know this 2.1-km out-and-back trail near Guilin Shi, Guangxi. Generally considered a moderately challenging route, it takes an average of 41 min to complete. This is a popular trail for hiking and walking, but you can still enjoy some solitude during quieter times of day."
+  },{
+    "link": "https://www.alltrails.com/api/alltrails/v3/trails/10913638/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+    "name": "Bajiaozhai Hanging Coffins",
+    "park": "Bajiaozhai Scenic Area",
+    "city": "None",
+    "state": "Guangxi",
+    "country": "China",
+    "difficulty": "Easy",
+    "length": "0.5km",
+    "elevation": "53m",
+    "route_type": "Out & back",
+    "description": "Experience this 0.5-km out-and-back trail near Guilin Shi, Guangxi. Generally considered an easy route, it takes an average of 14 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring."
+  }
+]
