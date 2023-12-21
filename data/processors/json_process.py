@@ -1,6 +1,6 @@
 import json
 
-str = "ningxia"
+str = "singapore"
 _str = str.capitalize()
 
 str1 = '../raw/' + _str + '.json'
@@ -8,13 +8,13 @@ str1 = '../raw/' + _str + '.json'
 with open(str1, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-exclude = [0]
+exclude = [4]
 
 num = 0
 for obj in data:
 
     print(obj['name'])
-    file_name = '../path/China/' + str + '/' + obj['name'] + '.js'
+    file_name = '../path/' + str + '/' + obj['name'] + '.js'
     with open(file_name, 'r') as tfile:
         js_code = tfile.read()
         js_data = json.loads(js_code)
@@ -40,8 +40,8 @@ for obj in data:
         num += 1
 
 str2 = '../reformat/' + str + '.json'
-# with open(str2, 'w', encoding='utf-8') as file:
-#     json.dump(data, file, ensure_ascii=False)
+with open(str2, 'w', encoding='utf-8') as file:
+    json.dump(data, file, ensure_ascii=False)
 
 
 
