@@ -1,1 +1,47 @@
-[{"link": "https://www.alltrails.com/api/alltrails/v3/trails/10916698/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Wutaishan South Peak", "park": "None", "city": "Xinzhou", "state": "Shanxi", "country": "China", "difficulty": "Hard", "length": "15.1km", "elevation": "817m", "route_type": "Loop", "description": "Try this 15.1-km loop trail near Xinzhou, Shanxi. Generally considered a challenging route, it takes an average of 5 h 31 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.", "lat": 38.9246, "lng": 113.53414}, {"link": "https://www.alltrails.com/api/alltrails/v3/trails/10411468/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Hukou Waterfall", "park": "None", "city": "Linfen", "state": "Shanxi", "country": "China", "difficulty": "Moderate", "length": "0.5km", "elevation": "10m", "route_type": "Out & back", "description": "Head out on this 0.5-km out-and-back trail near Linfen, Shanxi. Generally considered an easy route, it takes an average of 8 min to complete. This is a popular trail for birding, hiking, and walking, but you can still enjoy some solitude during quieter times of day.", "lat": 36.14754, "lng": 110.44711}, {"link": "https://www.alltrails.com/api/alltrails/v3/trails/10502803/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i", "name": "Mount Tianya", "park": "None", "city": "Xinzhou", "state": "Shanxi", "country": "China", "difficulty": "Moderate", "length": "7.2km", "elevation": "191m", "route_type": "Point to point", "description": "Get to know this 7.2-km point-to-point trail near Xinzhou, Shanxi. Generally considered a moderately challenging route, it takes an average of 2 h 1 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.", "lat": 38.71797, "lng": 112.79227}]
+[
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v3/trails/10916698/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Wutaishan South Peak",
+        "park": "None",
+        "city": "Xinzhou",
+        "state": "Shanxi",
+        "country": "China",
+        "difficulty": "Hard",
+        "length": "15.1km",
+        "elevation": "817m",
+        "route_type": "Loop",
+        "description": "Try this 15.1-km loop trail near Xinzhou, Shanxi. Generally considered a challenging route, it takes an average of 5 h 31 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.",
+        "lat": 38.9246,
+        "lng": 113.53414
+    },
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v3/trails/10411468/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Hukou Waterfall",
+        "park": "None",
+        "city": "Linfen",
+        "state": "Shanxi",
+        "country": "China",
+        "difficulty": "Moderate",
+        "length": "0.5km",
+        "elevation": "10m",
+        "route_type": "Out & back",
+        "description": "Head out on this 0.5-km out-and-back trail near Linfen, Shanxi. Generally considered an easy route, it takes an average of 8 min to complete. This is a popular trail for birding, hiking, and walking, but you can still enjoy some solitude during quieter times of day.",
+        "lat": 36.14754,
+        "lng": 110.44711
+    },
+    {
+        "link": "https://www.alltrails.com/api/alltrails/v3/trails/10502803/profile_photo?show_placeholder=no&size=larger_wide&static_map_size=320x320&static_map_scale=2&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
+        "name": "Mount Tianya",
+        "park": "None",
+        "city": "Xinzhou",
+        "state": "Shanxi",
+        "country": "China",
+        "difficulty": "Moderate",
+        "length": "7.2km",
+        "elevation": "191m",
+        "route_type": "Point to point",
+        "description": "Get to know this 7.2-km point-to-point trail near Xinzhou, Shanxi. Generally considered a moderately challenging route, it takes an average of 2 h 1 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.",
+        "lat": 38.71797,
+        "lng": 112.79227
+    }
+]

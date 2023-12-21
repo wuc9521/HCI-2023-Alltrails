@@ -10,7 +10,9 @@ def rename_files_recursively(folder_path):
                 new_file_name = file_name
 
             # 生成新文件名，将空格、短横线和点号替换为下划线
-            new_file_name = new_file_name.replace(' ', '_').replace('-', '_').replace('.', '_')
+            if new_file_name.endswith('.geojson'):
+                new_file_name = new_file_name[:-8]
+            new_file_name = new_file_name.replace(' ', '_').replace('-', '_').replace('.', '_').replace(',', '_')
             new_file_name = new_file_name + '.geojson'
 
             # 如果新文件名不同于旧文件名，则重命名文件

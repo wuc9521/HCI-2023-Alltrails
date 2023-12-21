@@ -57,7 +57,7 @@ def remove_user_image():
     user = current_user.to_dict()
 
     profile_pic = user["profile_pic"]
-    deleted_pic = remove_file_from_s3(profile_pic)
+    # deleted_pic = remove_file_from_s3(profile_pic)
     current_user.profile_pic = None
     
     db.session.commit()

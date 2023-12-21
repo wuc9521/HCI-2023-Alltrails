@@ -135,21 +135,6 @@
         "lng": 118.82796
     },
     {
-        "link": "https://www.alltrails.com/api/alltrails/v2/trails/10747143/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
-        "name": "Tombs and Temples of Purple Mountain",
-        "park": "Zhongshan Mountain National Park",
-        "city": "Nanjing",
-        "state": "Jiangsu",
-        "difficulty": "Easy",
-        "length": "10.3km",
-        "elevation": "282m",
-        "route_type": "Point to point",
-        "description": "Try this 10.3-km point-to-point trail near Nanjing, Jiangsu. Generally considered an easy route, it takes an average of 2 h 46 min to complete. This trail is great for hiking and walking, and it's unlikely you'll encounter many other people while exploring.",
-        "country": "China",
-        "lat": 32.04348,
-        "lng": 118.82044
-    },
-    {
         "link": "https://www.alltrails.com/api/alltrails/v2/trails/10624978/photos/0?size=larger_wide&key=3p0t5s6b5g4g0e8k3c1j3w7y5c3m4t8i",
         "name": "Qixia Mountain and Tiger Mountain",
         "park": "None",
