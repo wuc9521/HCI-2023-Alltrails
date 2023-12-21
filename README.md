@@ -1,16 +1,13 @@
 $$
 \Huge{\textbf{Phaunos} \to \textbf{HCI@2023}}
 $$
+# 1. TODOs
 
-# 1. About
-
-我们的共享文档: https://box.nju.edu.cn/group/17980/
-
-请大家新建属于自己的分支, 不要直接提交到main分支
-
-- 我使用的 node 版本是`16.20.0`
-- 我修改了/react-app/package.json, 如果大家已经运行过 `npm install`, 请把 /node_modules 删掉, 重新运行一次 `npm install`.
-
+- [x] fetch data.
+- [x] database modify.
+- [x] backend search.
+- [ ] frontend search.
+- [ ] modifying all styles.
 
 
 # 2. Tech Stack
@@ -20,19 +17,6 @@ $$
 数据库使用 PostgreSQL, 具体来说使用 Python Alembic 来实现数据的管理和迁移.
 
 > [这篇知乎](https://zhuanlan.zhihu.com/p/90106173)介绍了Python Alembic
-
-原作者在 Phaunos 的 github wiki 中介绍了它这里数据库的schema, 如下图:
-
-<img src="https://naturalifica.oss-cn-nanjing.aliyuncs.com/~/Users/wuchentian/SoloLearning/Blog/source/imgs/f59e3468dba6f325ddcc25c58998c260.png" alt="schema" style="zoom:70%;" />
-
-我们在这里可以发现, 我们**还需要一个**和 `trails` 对应的表 `path` (好像叫外键还是什么来着....🤡)
-
-`path` 表的元素和 `trails` 的元素一一对应, 并且标记了这条路径的起始地点, 结束地点, 以及一个列表的经度纬度高度等信息. 
-
-这样的数据可以直接从alltrails官网上下载, 几乎可以下载成任何格式, 但是实践中我们发现使用 json 格式可能更方便.
-
-> $\textbf{TODO}$: 需要一个人来爬取数据
-
 
 
 ## 2.2. backend
@@ -50,8 +34,6 @@ $$
 
 
 # -1. Phaunos
-
-> project link is [**here**](https://github.com/dorianinc/Phaunos)
 
 ## -1.1. How to start project locally (old)
 
