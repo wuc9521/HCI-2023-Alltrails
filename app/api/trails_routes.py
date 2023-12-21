@@ -1,4 +1,5 @@
 from ast import FunctionDef
+from collections import defaultdict
 from operator import or_
 from flask import Blueprint, request, make_response, jsonify
 from flask_login import login_required, current_user
@@ -24,11 +25,39 @@ def validation_errors_to_error_messages(validation_errors):
 def search_trails():
     query = request.data.decode('utf-8')  # 获取搜索关键字
 
-    # 在数据库中执行模糊查询
-    trails = Trail.query.filter(or_(Trail.name.ilike(f"%{query}%"), Trail.city.ilike(f"%{query}%"))).all()
+    # 分割关键字成为一个关键字列表
+    keywords = query.split()
 
-    # 将查询结果转换为字典列表
-    results = [trail.to_dict() for trail in trails]
+    # 创建一个默认值为0的字典来统计每个Trail的出现次数
+    trail_counts = defaultdict(int)
+
+    # 遍历每个关键字
+    for keyword in keywords:
+        # 在数据库中执行模糊查询
+        trails = Trail.query.filter(
+            or_(
+                or_(
+                    or_(
+                        Trail.name.ilike(f"%{keyword}%"),
+                        Trail.city.ilike(f"%{keyword}%")
+                        ),
+                    or_(
+                        Trail.park.ilike(f"%{keyword}%"),
+                        Trail.state.ilike(f"%{keyword}%")
+                        )
+                ),
+                Trail.country.ilike(f"%{keyword}%")
+            )
+        ).all()
+        # 将每个Trail的出现次数加1
+        for trail in trails:
+            trail_counts[trail] += 1
+
+    # 根据出现次数倒序排序Trails
+    sorted_trails = sorted(trail_counts.keys(), key=lambda trail: trail_counts[trail], reverse=True)
+
+    # 将排序后的结果转换为字典列表
+    results = [trail.to_dict() for trail in sorted_trails]
 
     return jsonify(query=query, results=results), 200
 
