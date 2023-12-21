@@ -22,11 +22,14 @@ $$
 
 ## 2.2. backend
 
-后端使用 flask
+- flask;
 
 ## 2.3. frontend
 
-前端使用 react 框架, 还包括 react router; css3; redux.
+- react; 
+- react router; 
+- css3; 
+- redux.
 
 
 # -1. start project locally

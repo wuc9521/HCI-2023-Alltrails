@@ -1,11 +1,12 @@
 import dotenv from "dotenv";
 import React, { useEffect, useMemo, useState } from "react";
 import { useMap } from "../../../context/MapContext";
-import { GoogleMap, useJsApiLoader, Data } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Data, Marker, InfoWindow } from "@react-google-maps/api";
 dotenv.config();
 
 const MapComponent = ({ JSONDataList }) => {
     const [map, setMap] = useState(null);
+    const [selectedMarker, setSelectedMarker] = useState(null);
     const { currentZoom, setCurrentZoom, currentLat, setCurrentLat, currentLng, setCurrentLng } = useMap();
     const center = useMemo(() => ({ lat: currentLat, lng: currentLng }), [currentLat, currentLng]);
     const mapOptions = {
@@ -18,6 +19,14 @@ const MapComponent = ({ JSONDataList }) => {
         setMap(map);
     };
 
+    const onMarkerClick = (marker) => {
+        setSelectedMarker(marker);
+    };
+
+    const onCloseInfoWindow = () => {
+        setSelectedMarker(null);
+    };
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((position) => {
             setCurrentLat(position.coords.latitude);
@@ -28,7 +37,7 @@ const MapComponent = ({ JSONDataList }) => {
             // 遍历所有的 GeoJSON 数据，将其添加到 Data 组件中
             JSONDataList.forEach((geoJSONData) => {
                 map.data.setStyle((feature) => {
-                    let color = "lightblue";
+                    let color = "lightpurple";
 
                     if (feature.getProperty("isColorful")) {
                         color = feature.getProperty("color");
@@ -55,9 +64,9 @@ const MapComponent = ({ JSONDataList }) => {
                 map.data.addListener("mouseout", (event) => {
                     map.data.revertStyle();
                 });
-
                 map.data.addGeoJson(geoJSONData);
             });
+            console.log(JSONDataList)
         }
     }, [map, JSONDataList]);
 
@@ -71,6 +80,25 @@ const MapComponent = ({ JSONDataList }) => {
             zoom={mapOptions.zoom}
             onLoad={onLoad} >
             <Data options={{ controlPosition: 2, controls: true }} />
+            {JSONDataList.map((geoJSONData, index) => (
+                <Marker
+                    key={index}
+                    position={{ lat: geoJSONData.features[0].geometry.coordinates[0][1], lng: geoJSONData.features[0].geometry.coordinates[0][0] }}
+                    onClick={() => onMarkerClick(geoJSONData)}
+                />
+            ))}
+            {selectedMarker && (
+                <InfoWindow
+                    position={{ lat: selectedMarker.features[0].geometry.coordinates[0][1], lng: selectedMarker.features[0].geometry.coordinates[0][0] }}
+                    onCloseClick={onCloseInfoWindow}
+                >
+                    <div>
+                        {/* 根据需要显示的内容自定义 */}
+                        <h2><center>{selectedMarker.features[0].properties.name}</center></h2>
+                        <p>{/* 其他信息 */}</p>
+                    </div>
+                </InfoWindow>
+            )}
         </GoogleMap>
     );
 };
