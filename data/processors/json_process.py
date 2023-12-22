@@ -1,16 +1,20 @@
 import json
 
+str = "california"
+_str = str.capitalize()
+
+str1 = '../raw/' + _str + '.json'
 # 读取 JavaScript 文件
-with open('../raw/Qinghai.json', 'r', encoding='utf-8') as file:
+with open(str1, 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-exclude = []
+exclude = [0,1,2,3,4,6,8,9,10,11,12,13,16,17,18,19]
 
 num = 0
 for obj in data:
 
     print(obj['name'])
-    file_name = '../path/China/qinghai/' + obj['name'] + '.js'
+    file_name = '../path/us/' + str + '/' + obj['name'] + '.js'
     with open(file_name, 'r') as tfile:
         js_code = tfile.read()
         js_data = json.loads(js_code)
@@ -32,9 +36,11 @@ for obj in data:
             print("lat:", lat)
             print("lng:", lng)
             print("-------------------------------")
+
         num += 1
 
-with open('../reformat/qinghai.json', 'w', encoding='utf-8') as file:
+str2 = '../reformat/' + str + '.json'
+with open(str2, 'w', encoding='utf-8') as file:
     json.dump(data, file, ensure_ascii=False)
 
 
