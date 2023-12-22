@@ -1,17 +1,34 @@
-// import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./Banner.css";
 import { useDispatch } from "react-redux";
-import { searchTrailsThunk } from "../../../store/trails"; // 替换为实际的路径
+import { searchTrailsThunk } from "../../../store/trails"; // Replace with the actual path
 
 const Banner = () => {
   const dispatch = useDispatch();
-  const handleClick = async (e) => {
-    const searchInput = e.target;
-    // 获取输入框的值，假设你的输入框有一个 id 为 "search-input"
-    const query = document.getElementById("search-input").value;
-    const result = await dispatch(searchTrailsThunk(query)); // 调用 Redux thunk 函数
-    console.log(result);// 处理返回的结果，如果需要的话
+  const [showResults, setShowResults] = useState(false);
+  const [searchResults, setSearchResults] = useState([]); // This is the state that will hold the results from the search
+  const handleClick = async () => {
+    try {
+      const query = document.getElementById("search-input").value;
+      if (query.trim() !== "") {
+        const results = await dispatch(searchTrailsThunk(query));
+        console.log(results);
+        setSearchResults(results);
+        setShowResults(true);
+      } else {
+        setShowResults(false);
+        console.log("Query is empty");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+
+  // Adding a useEffect to log the updated state after it has been applied
+  useEffect(() => {
+    console.log("Updated searchResults:", searchResults);
+  }, [searchResults]);
+
 
   return (
     <>
@@ -22,15 +39,22 @@ const Banner = () => {
           <span className="search-bar">
             <div id="search-button">
               <i className="fa-solid fa-magnifying-glass fa-xl" />
-              <input id="search-input" type="search" name="trail-search" placeholder="Search by city, park, or trail name"/>
-              <div onClick={(e) => handleClick(e)}>
+              <input id="search-input" type="search" name="trail-search" placeholder="Search by city, park, or trail name" />
+              <div onClick={handleClick}>
                 <i className="fa-solid fa-circle-arrow-right fa-2xl" />
               </div>
             </div>
           </span>
           <p id="explorer-tag">
-            {/* <Link>Explore nearby trails</Link> */}
-            </p>
+            
+          </p>
+          {showResults && (
+            <ul>
+              {searchResults.map((result) => (
+                <li key={result.id}>{result.name}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </>

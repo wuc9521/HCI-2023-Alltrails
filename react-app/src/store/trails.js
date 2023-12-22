@@ -60,21 +60,20 @@ export const updateTrailThunk = (trailId) => async (dispatch) => {
   }
 };
 
-// search trails
-export const searchTrailsThunk = (query) => async (dispatch) => {
-  const res = await fetch("/api/trails/search", {
+export const searchTrailsThunk = (data) => async (dispatch) => {
+  const response = await fetch("/api/trails/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ query }),
+    body: data,
   });
-
-  if (res.ok) {
-    const data = await res.json();
-    await dispatch(searchTrails(data));
-    return data;
+  if (!response.ok) {
+    throw new Error('Search request failed');
   }
+  const result = await response.json();
+  await dispatch(searchTrails(result));
+  return result;
 };
 
 const trailsReducer = (state = {}, action) => {
