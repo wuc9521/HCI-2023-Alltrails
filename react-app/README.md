@@ -1,7 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TODOs
 
-Your React App will live here.  You will need to run `npm install` to install all your dependencies before starting up the application. While in development, run this application from this location using `npm start`.
+只有一件事: 调整样式.
 
-No environment variables are needed to run this application in development, but be sure to set the REACT_APP_BASE_URL environment variable when you deploy!
+- [ ] 现在search可以得到结果, 以unorderedlist (&lt;ul>)的形式显示在界面上, 需要为search加上单独的界面, 可以参考alltrails.
 
-This app will be automatically built when you push to your main branch on Github.
+- [ ] google map上的图标都是红色的默认图标, 需要修改成对应经典的logo, 或者根据难度分等级的logo.
+
+- [ ] explore界面需要调整样式, 功能需要和mylists里的类似, 需要有<u>view trail</u>的按钮, 点击后跳转到对应的trail.
+
+- [ ] 登录界面调整布局.
+- [ ] 删除冗余代码.
+
