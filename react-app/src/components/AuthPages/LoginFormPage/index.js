@@ -28,19 +28,11 @@ function LoginFormPage() {
     }
   };
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login("demo@aa.io", "password"));
-    if (data) {
-      setErrors(data);
-    }
-  };
-
   return (
     <div className="login-page-container">
       <img className="login-page-image" alt="city-forest" src="/images/backgrounds/log-in-page.jpg" />
       <div className="login-page-content">
-        <h1 id="login-page-header">Log in and start exploring.</h1>
+        <h1 id="login-page-header">Log in</h1>
         <form onSubmit={handleSubmit}>
           <div className="inputs-container">
             <label>
@@ -68,9 +60,6 @@ function LoginFormPage() {
           <div className="buttons">
             <button className="green-button login" type="submit">
               Log In
-            </button>
-            <button className="green-button demo" onClick={(e) => handleClick(e)}>
-              demo user
             </button>
           </div>
           <p className="signup-option">

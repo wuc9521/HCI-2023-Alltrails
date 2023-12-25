@@ -11,3 +11,11 @@
 - [ ] 登录界面调整布局.
 - [ ] 删除冗余代码.
 
+# Project Structure
+
+`$URL`: SplashPage/
+- SplashPage
+- Banner
+
+`$URL/profile/lists`: 
+- ProfilePage/

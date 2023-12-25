@@ -79,7 +79,7 @@ const TrailDetails = () => {
               </tr>
             </tbody>
           </table>
-          <div className="trail-details-desc">"{currentTrail.description}"</div>
+          <div className="trail-details-desc">"<i>{currentTrail.description}"</i></div>
           <hr className="item-divider" />
           <div className="trail-details-weather"><WeatherForecast lat={currentTrail.lat} lng={currentTrail.lng} /></div>
           <hr className="item-divider" />

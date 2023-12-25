@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTrailsThunk } from "../../store/trails";
 import Banner from "./Banner/Banner";
@@ -10,18 +10,16 @@ function SplashPage() {
   const getTrails = useSelector((state) => state.trails);
   const trails = Object.values(getTrails);
   const topTrails = trails.sort((a, b) => b.avg_rating - a.avg_rating);
-
+  const [searchData, setSearchData] = useState([]);
+  const [query, setQuery] = useState("");
   useEffect(() => {
     dispatch(getTrailsThunk());
   }, [dispatch]);
-  
+
   if (!topTrails.length) return null;
 
   const handleSlider = (direction) => {
     const trailContainer = document.querySelector(".trail-item-container");
-    // let containerDimensions = trailContainer.getBoundingClientRect();
-    // let containerWidth = containerDimensions.width;
-    // console.log("containerWidth 👉", containerWidth)
     if (direction === "back") {
       trailContainer.scrollLeft -= 1095;
     } else {
@@ -29,13 +27,24 @@ function SplashPage() {
     }
   };
 
+  const handleSearchData = (data) => {
+    setSearchData(data.results);
+    setQuery(data.query);
+  };
+
 
   return (
     <>
-      <Banner />
+      <Banner onSearch={handleSearchData} />
       <div className="content-container">
         <div className="content-trails">
-          <h1 className="local-favorites">Popular Trails</h1><br/>
+          <h1 className="local-favorites">
+            {
+              searchData.length > 0 ?
+                <span>Search Results about <u>#{query}</u></span> :
+                <span>Top Trails</span>
+            }
+          </h1><br />
           <button className="prev-button" onClick={() => handleSlider("back")}>
             <i className="fa-solid fa-chevron-left fa-2xl" />
           </button>
@@ -43,14 +52,15 @@ function SplashPage() {
             <i className="fa-solid fa-chevron-right fa-2xl" />
           </button>
           <div className="trail-item-container">
-            {(() => {
-              let topTen = [];
-              for (let i = 0; i < 10; i++) {
-                const trail = topTrails[i];
-                topTen.push(<TrailItem key={i} trail={trail} nameOfClass="splash" />);
-              }
-              return topTen;
-            })()}
+            {searchData.length > 0 ? (
+              searchData.map((trail, index) => (
+                <TrailItem key={index} trail={trail} nameOfClass="splash" />
+              ))
+            ) : (
+              topTrails.slice(0, 10).map((trail, index) => (
+                <TrailItem key={index} trail={trail} nameOfClass="splash" />
+              ))
+            )}
           </div>
         </div>
       </div>

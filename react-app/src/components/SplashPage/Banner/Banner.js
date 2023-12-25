@@ -3,7 +3,7 @@ import "./Banner.css";
 import { useDispatch } from "react-redux";
 import { searchTrailsThunk } from "../../../store/trails"; // Replace with the actual path
 
-const Banner = () => {
+const Banner = ({onSearch}) => {
   const dispatch = useDispatch();
   const [showResults, setShowResults] = useState(false);
   const [searchResults, setSearchResults] = useState([]); // This is the state that will hold the results from the search
@@ -15,6 +15,7 @@ const Banner = () => {
         console.log(results);
         setSearchResults(results);
         setShowResults(true);
+        onSearch({query, results});
       } else {
         setShowResults(false);
         console.log("Query is empty");
@@ -45,16 +46,6 @@ const Banner = () => {
               </div>
             </div>
           </span>
-          <p id="explorer-tag">
-            
-          </p>
-          {showResults && (
-            <ul>
-              {searchResults.map((result) => (
-                <li key={result.id}>{result.name}</li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
     </>

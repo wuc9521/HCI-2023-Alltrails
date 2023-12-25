@@ -50,14 +50,17 @@ const ProfilePage = () => {
         <div onMouseLeave={() => setSelected(false)}>
           <div className="profile-pic-container profile tooltip">
             <img className="profile-pic profile" alt="profile-pic" src={user.profile_pic ? user.profile_pic : user.default_pic} onClick={handleToggle} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}/>
+            <center>
             <div className={`tooltip-content ${hovered || selected ? "" : "hidden"}`}>
               {!user.profile_pic ? (<ModalButton modalComponent={<DropZone selected={setSelected} />} buttonContent={<p className="image-options">Edit</p>}/>) : (<p className="image-options" onClick={(e) => handleDelete(e)}>Delete</p>)}
             </div>
+            </center>
           </div>
         </div>
         <h1 id="profile-user-name">{user.first_name} {user.last_name}</h1>
-        <p id="profile-user-username">@<u>{user.username}</u></p>
-        {/* <p id="profile-user-member">Member since May 2023</p> */}
+        <p id="profile-user-username">
+          @<u><a href="/profile/feed">{user.username}</a></u>
+        </p>
       </div>
       <div className="profile-user-tabs-container">
         <div>

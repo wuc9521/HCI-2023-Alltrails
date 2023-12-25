@@ -55,10 +55,3 @@
 #search-input:focus {
   outline: none;
 }
-
-#explorer-tag>a{
-  color: #fff;
-  font-weight: 500;
-  font-size: 1.2rem;
-  text-decoration: underline;
-}

@@ -81,7 +81,7 @@
   overflow: hidden;
   box-sizing: border-box;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 24px 24px 24px 24px;
+  border-radius: 10px;
 }
 
 .dropdown-options{
