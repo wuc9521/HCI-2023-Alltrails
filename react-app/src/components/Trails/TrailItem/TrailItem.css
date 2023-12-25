@@ -3,6 +3,7 @@
   position: relative;
   display: inline-block; /* 使得容器的宽度适应内容 */
   border-radius: 10px;
+  height: 175px;
 }
 
 /* ---- Splash Page CSS ----- */
@@ -145,7 +146,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
-  height: 30%;
+  width: 25%;
   object-fit: cover; /* 调整图片填充方式，保持宽高比 */
 }

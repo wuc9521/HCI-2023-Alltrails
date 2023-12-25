@@ -4,8 +4,8 @@ function LogoButton() {
   
     return (
       <div className="logoContainer">
-          <img className ="logo" alt="phaunos"  src="/images/logo.png"/>
-          <p className="title">Phaunos</p>
+          <img className ="logo" alt="TrailMate"  src="/images/logo.png"/>
+          <p className="title">TrailMate</p>
       </div>
     );
     

@@ -55,7 +55,6 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
           <img className={`trail-image ${nameOfClass}`} alt="cover" src={trail.cover} />
           {hovered && (
             <div className="overlay">
-              {/* <p className="{light-font}">Your Text Here</p> */}
               <img src="/images/icons/eye.png" alt="eye" className="eye-image" />
             </div>
           )}
