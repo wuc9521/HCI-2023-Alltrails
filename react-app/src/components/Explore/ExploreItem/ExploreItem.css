@@ -6,7 +6,10 @@
   
   .trail-image{
     height: 175px;
-    border-radius: 25px;
+    width: 80%;
+    min-width: 80%;
+    overflow: hidden;
+    border-radius: 10px;
   }
   
   /* ---- Bookmark Page CSS ----- */
@@ -17,9 +20,11 @@
   }
   
   .trail-image.bookmark {
+    
     height: 225px;
-    /* width: 100%; */
-    border-radius: 25px;
+    width: 250px;
+    overflow-y: hidden;
+    border-radius: 10px;
   }
   
   /* ---- Trail Details Page CSS ----- */

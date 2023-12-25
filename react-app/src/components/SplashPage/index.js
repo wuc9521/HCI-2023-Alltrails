@@ -38,13 +38,13 @@ function SplashPage() {
       <Banner onSearch={handleSearchData} />
       <div className="content-container">
         <div className="content-trails">
-          <h1 className="local-favorites">
+          <div className="local-favorites">
             {
               searchData.length > 0 ?
                 <span>Search Results about <u>#{query}</u></span> :
                 <span>Top Trails</span>
             }
-          </h1><br />
+          </div><br />
           <button className="prev-button" onClick={() => handleSlider("back")}>
             <i className="fa-solid fa-chevron-left fa-2xl" />
           </button>

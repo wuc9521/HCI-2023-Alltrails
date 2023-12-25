@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useHistory, useLocation, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteBookmarkThunk } from "../../../store/lists";
@@ -13,7 +14,7 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
   const location = useLocation();
   const dispatch = useDispatch();
   const pathName = location.pathname;
-
+  const [hovered, setHovered] = useState(false);
   const user = useSelector((state) => state.session.user);
 
   const handleClick = (e, trail) => {
@@ -28,6 +29,14 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
     }
   };
 
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
   const handleDelete = async (e, bookmarkId) => {
     e.stopPropagation();
     dispatch(deleteBookmarkThunk({ bookmarkId }, listId));
@@ -36,14 +45,25 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
   if (!trail.id || !trail.cover) return null;
   return (
     <>
-      <div className={`trail-item ${nameOfClass}`} onClick={(e) => handleClick(e, trail)}>
-        <div>
+      <div
+        className={`trail-item ${hovered ? "hovered" : ""} ${nameOfClass}`}
+        onClick={(e) => handleClick(e, trail)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="trail-container">
           <img className={`trail-image ${nameOfClass}`} alt="cover" src={trail.cover} />
+          {hovered && (
+            <div className="overlay">
+              {/* <p className="{light-font}">Your Text Here</p> */}
+              <img src="/images/icons/eye.png" alt="eye" className="eye-image" />
+            </div>
+          )}
         </div>
         <div className={`trail-text ${nameOfClass}`}>
           <div className="trail-card-top">
             <p id="trail-diff-review">
-            <span id={`trail-len`}>{trail.len}</span> • {trail.difficulty} • <i className="fa-solid fa-star fa-xs" />{" "}
+              <span id={`trail-len`}>{trail.len}</span> • {trail.difficulty} • <i className="fa-solid fa-star fa-xs" />{" "}
               {Number(trail.avg_rating).toFixed(1)}({trail.num_reviews})
             </p>
             {pathName.startsWith("/profile/lists") && (

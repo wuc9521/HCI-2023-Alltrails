@@ -8,6 +8,8 @@
 }
 
 .local-favorites{
+    font-size: 30px;
+    font-weight: bolder;
     position: absolute;
     z-index: 4;
 }
