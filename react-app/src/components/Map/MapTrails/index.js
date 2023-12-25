@@ -13,6 +13,8 @@ const MapComponent = ({ JSONDataList }) => {
         zoom: currentZoom,
         center,
         mapTypeId: "terrain",
+        tilt: 45,
+        heading: 90,
     };
     const onLoad = (map) => {
         setMap(map);
@@ -33,7 +35,6 @@ const MapComponent = ({ JSONDataList }) => {
             setCurrentZoom(18);
         });
         if (map && JSONDataList) {
-            // 遍历所有的 GeoJSON 数据，将其添加到 Data 组件中
             JSONDataList.forEach((geoJSONData) => {
                 map.data.setStyle((feature) => {
                     let color = "lightpurple";
@@ -47,23 +48,16 @@ const MapComponent = ({ JSONDataList }) => {
                         strokeWeight: 2,
                     };
                 });
-                // When the user clicks, set 'isColorful', changing the color of the letters.
                 map.data.addListener("click", (event) => {
                     event.feature.setProperty("isColorful", true);
                 });
-
-                // When the user hovers, tempt them to click by outlining the letters.
-                // Call revertStyle() to remove all overrides. This will use the style rules
-                // defined in the function passed to setStyle()
                 map.data.addListener("mouseover", (event) => {
                     map.data.revertStyle();
                     map.data.overrideStyle(event.feature, { strokeWeight: 8 });
                 });
                 map.data.addListener("mouseout", (event) => { map.data.revertStyle(); });
-                console.log(geoJSONData)
                 map.data.addGeoJson(geoJSONData);
             });
-            console.log(JSONDataList)
         }
     }, [map, JSONDataList]);
 
@@ -75,6 +69,9 @@ const MapComponent = ({ JSONDataList }) => {
             }}
             center={mapOptions.center}
             zoom={mapOptions.zoom}
+            tilt={mapOptions.tilt}
+            heading={mapOptions.heading}
+            mapTypeId={mapOptions.mapTypeId}
             onLoad={onLoad} >
             <Data options={{ controlPosition: 2, controls: true }} />
             {JSONDataList.map((geoJSONData, index) => (
@@ -125,7 +122,7 @@ const MapTrails = ({ trails }) => {
                 const country = trail.country ? trail.country.toLowerCase() + '/' : '';
                 const state = trail.state && trail.state !== "None" ? `${trail.state.toLowerCase()}/` : '';
                 const city = trail.city !== "None" ? trail.city.toLowerCase() + '/' : '';
-                const name = trail.name.replace(/[\s.-]/g, '_');
+                const name = trail.name.replace(/[\s.,-]/g, '_');
                 const url = state !== '' ? `/path/${country}${state}${name}.geojson` : `/path/${country}${city}${name}.geojson`;
                 return fetch(url)
                     .then((response) => response.json())
