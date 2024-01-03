@@ -52,7 +52,7 @@ function TrailItem({ trail, bookmarkId, listId, nameOfClass, editing }) {
         onMouseLeave={handleMouseLeave}
       >
         <div className="trail-container">
-          <img className={`trail-image ${nameOfClass}`} alt="cover" src={trail.cover} />
+          <img className={`trail-image splash`} alt="cover" src={trail.cover} />
           {hovered && (
             <div className="overlay">
               <img src="/images/icons/eye.png" alt="eye" className="eye-image" />

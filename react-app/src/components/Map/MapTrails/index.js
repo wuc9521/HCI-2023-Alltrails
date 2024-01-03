@@ -82,8 +82,6 @@ const MapComponent = ({ JSONDataList }) => {
                         <Marker
                             key={index}
                             position={{ lat: geoJSONData.features[0].geometry.coordinates[0][0][0], lng: geoJSONData.features[0].geometry.coordinates[0][0][1] }}
-                            // onClick={() => onMarkerClick(geoJSONData)}
-                            // icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"}
                             animation={window.google.maps.Animation.DROP}
                         />
                     ) : (

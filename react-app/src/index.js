@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 
-const Root = () => {
+function Root() {
   return (
     <MapProvider>
       <TrailProvider>
@@ -36,10 +36,10 @@ const Root = () => {
     </MapProvider>
   );
 }
-const root = createRoot(document.getElementById("root"));
 
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Root />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
